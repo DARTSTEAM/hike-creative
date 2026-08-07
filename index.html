@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hike Creative — Del brief a la gran idea.</title>
+  <meta name="description" content="Inteligencia creativa para marcas. Un solo flujo que conecta estrategia, insights y creatividad con IA — del objetivo de negocio a piezas listas para publicar." />
+  <meta name="theme-color" content="#f5f5f7" />
+
+  <!-- Favicon inline (mark: ascenso / hike) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M5 23.5 L12.5 11 L17.5 18 L26.5 6' fill='none' stroke='%231d1d1f' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='26.5' cy='6' r='2.6' fill='%23ad87ff'/%3E%3C/svg%3E" />
+
+  <!-- Head guard: enable reveal choreography before first paint (no flash),
+       with a failsafe that always shows content even if script.js never loads. -->
+  <script>
+    (function () {
+      var h = document.documentElement;
+      h.classList.remove('no-js'); h.classList.add('js');
+      try {
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          h.classList.add('animate-ready');
+        }
+      } catch (e) {}
+      // Failsafe: if the main script fails to run, reveal everything anyway.
+      window.setTimeout(function () { h.classList.add('reveal-fallback'); }, 2600);
+    })();
+  </script>
+
+  <!-- Preload the self-hosted webfont so Windows/Android render Inter,
+       not Arial, on first paint (macOS/iOS still get true SF first). -->
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="Hike Creative, inicio">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26">
+            <path d="M5 23.5 L12.5 11 L17.5 18 L26.5 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="26.5" cy="6" r="2.4" fill="#AD87FF"/>
+          </svg>
+        </span>
+        <span class="brand__word">Hike&nbsp;Creative</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#proceso">Proceso</a>
+        <a href="#plataforma">Plataforma</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="btn btn--pill" href="#contacto">Empezar</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav__mobile" id="mobileMenu" hidden>
+      <a href="#proceso">Proceso</a>
+      <a href="#plataforma">Plataforma</a>
+      <a href="#precios">Precios</a>
+      <a href="#contacto">Contacto</a>
+      <a class="btn btn--pill nav__mobile-cta" href="#contacto">Empezar</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero__copy">
+        <p class="eyebrow reveal">Inteligencia creativa para marcas</p>
+        <h1 class="hero__title reveal" id="hero-title">Del brief a la gran idea.</h1>
+        <p class="hero__sub reveal">Un solo flujo que conecta estrategia, insights y creatividad con IA. Del objetivo de negocio a piezas listas para publicar — con menos fricción y más foco.</p>
+        <div class="hero__cta reveal">
+          <a class="btn btn--pill btn--primary" href="#proceso">Ver cómo funciona <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--text" href="#contacto">Hablar con ventas <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <!-- Product mockup: app window -->
+      <div class="wrap">
+        <div class="appwin reveal" id="heroMock" role="img" aria-label="Interfaz de Hike Creative: un panel de brief a la izquierda y una grilla de seis piezas generadas por IA a la derecha.">
+          <div class="appwin__bar">
+            <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+            <span class="appwin__title">Campaña — Lanzamiento Primavera</span>
+            <span class="appwin__chip">IA activa</span>
+          </div>
+          <div class="appwin__body">
+            <!-- Brief panel -->
+            <aside class="brief" aria-hidden="true">
+              <p class="brief__eyebrow">Brief</p>
+              <div class="field">
+                <span class="field__label">Marca</span>
+                <span class="field__value">Aurora</span>
+              </div>
+              <div class="field">
+                <span class="field__label">Objetivo</span>
+                <span class="field__value">Awareness · +Consideración</span>
+              </div>
+              <div class="field">
+                <span class="field__label">Canal</span>
+                <div class="chips">
+                  <span class="chip is-on">Instagram</span>
+                  <span class="chip is-on">TikTok</span>
+                  <span class="chip">Web</span>
+                </div>
+              </div>
+              <div class="field">
+                <span class="field__label">Tono</span>
+                <span class="field__value">Cálido, seguro, humano</span>
+              </div>
+              <div class="field field--full">
+                <span class="field__label">Dirección estética</span>
+                <div class="swatches">
+                  <span class="sw" style="--c:#1d1d1f"></span>
+                  <span class="sw" style="--c:#ad87ff"></span>
+                  <span class="sw" style="--c:#d9d3ff"></span>
+                  <span class="sw" style="--c:#e8e8ed"></span>
+                </div>
+              </div>
+              <div class="brief__gen">
+                <span class="brief__gen-label">Generar campaña</span>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </aside>
+
+            <!-- Assets grid: each tile is a believable generated piece -->
+            <div class="assets" aria-hidden="true">
+              <figure class="asset asset--a">
+                <div class="asset__art">
+                  <div class="ad">
+                    <span class="ad__brand">Aurora</span>
+                    <p class="ad__head">Tu primavera, en flor.</p>
+                    <p class="ad__sub">Nueva colección</p>
+                    <span class="ad__cta ad__cta--dark">Descubrir</span>
+                  </div>
+                </div>
+                <figcaption>Post 1:1</figcaption>
+              </figure>
+
+              <figure class="asset asset--b">
+                <div class="asset__art">
+                  <div class="ad ad--duo">
+                    <span class="ad__brand">Aurora</span>
+                    <p class="ad__head">Brillá distinto.</p>
+                    <p class="ad__sub">Colección primavera</p>
+                    <span class="ad__cta ad__cta--light">Ver más</span>
+                  </div>
+                </div>
+                <figcaption>Story 9:16</figcaption>
+              </figure>
+
+              <figure class="asset asset--c">
+                <div class="asset__art">
+                  <div class="ad ad--banner">
+                    <div class="ad__lead">
+                      <span class="ad__brand">Aurora</span>
+                      <p class="ad__head ad__head--sm">Envío gratis esta semana.</p>
+                    </div>
+                    <span class="ad__cta ad__cta--dark">Comprar</span>
+                  </div>
+                </div>
+                <figcaption>Banner</figcaption>
+              </figure>
+
+              <figure class="asset asset--d">
+                <div class="asset__art">
+                  <div class="ad ad--duo ad--reel">
+                    <span class="ad__brand">Aurora</span>
+                    <span class="ad__play" aria-hidden="true"></span>
+                    <p class="ad__head ad__head--sm">Detrás de la campaña</p>
+                    <span class="ad__badge">0:15</span>
+                  </div>
+                </div>
+                <figcaption>Reel</figcaption>
+              </figure>
+
+              <figure class="asset asset--e">
+                <div class="asset__art">
+                  <div class="ad ad--carousel">
+                    <span class="ad__brand">Aurora</span>
+                    <p class="ad__head">3 formas de brillar</p>
+                    <span class="ad__dots"><i class="is-on"></i><i></i><i></i></span>
+                  </div>
+                </div>
+                <figcaption>Carrusel</figcaption>
+              </figure>
+
+              <figure class="asset asset--f">
+                <div class="asset__art">
+                  <div class="ad ad--email">
+                    <div class="ad__mailhead">
+                      <span class="ad__brand">Aurora</span>
+                      <span class="ad__time">Ahora</span>
+                    </div>
+                    <p class="ad__head ad__head--sm">Novedades de primavera</p>
+                    <p class="ad__sub">Descubrí la nueva colección antes que nadie.</p>
+                    <span class="ad__cta ad__cta--dark">Leer</span>
+                  </div>
+                </div>
+                <figcaption>Email</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO FUNCIONA ============ -->
+    <section class="process" id="proceso" aria-labelledby="process-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow">Cómo funciona</p>
+          <h2 class="section-title" id="process-title">Un flujo, de principio a fin.</h2>
+        </header>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <div class="step__body">
+              <h3>Onboarding de marca</h3>
+              <p>Cargá brand books, insights y tono. Hike aprende tu identidad y la vuelve el punto de partida de todo lo que se crea.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">02</span>
+            <div class="step__body">
+              <h3>Briefing estratégico</h3>
+              <p>De objetivos de negocio a briefs y narrativas. La estrategia deja de ser un documento suelto: guía cada pieza.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">03</span>
+            <div class="step__body">
+              <h3>Generación con IA</h3>
+              <p>Piezas multicanal con dirección estética por campaña. Imagen y video, listos para publicar, siempre fieles a tu marca.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PLATAFORMA ============ -->
+    <section class="platform" id="plataforma" aria-labelledby="platform-title">
+      <div class="wrap">
+        <header class="section-head section-head--center reveal">
+          <p class="eyebrow">Plataforma</p>
+          <h2 class="section-title" id="platform-title">La ingeniería de tu creatividad.</h2>
+        </header>
+      </div>
+
+      <!-- Block 1: Brand Intelligence -->
+      <div class="feature">
+        <div class="wrap feature__grid">
+          <div class="feature__text reveal">
+            <p class="eyebrow">Brand Intelligence</p>
+            <h3 class="feature__title">Tu marca, respetada al detalle.</h3>
+            <p class="feature__body">Cada color, tipografía y tono se convierten en reglas vivas. El resultado: <strong>100% de compliance de marca</strong> en cada pieza, sin revisiones interminables.</p>
+          </div>
+          <div class="feature__media reveal">
+            <div class="mock mock--brand" role="img" aria-label="Panel de compliance de marca mostrando paleta, tipografía y un puntaje de 100%.">
+              <div class="mock__bar mock__bar--titled">
+                <span class="mock__led" aria-hidden="true"></span>
+                <span class="mock__title">Brand Guard</span>
+                <span class="mock__meta">En vivo</span>
+              </div>
+              <div class="brandpanel">
+                <div class="brandpanel__row">
+                  <span class="brandpanel__k">Compliance</span>
+                  <span class="brandpanel__score">100%</span>
+                </div>
+                <div class="brandpanel__block">
+                  <span class="brandpanel__label">Paleta</span>
+                  <div class="swatches swatches--lg">
+                    <span class="sw" style="--c:#1d1d1f"></span>
+                    <span class="sw" style="--c:#ad87ff"></span>
+                    <span class="sw" style="--c:#d9d3ff"></span>
+                    <span class="sw" style="--c:#6e6e73"></span>
+                    <span class="sw" style="--c:#f5f5f7"></span>
+                  </div>
+                </div>
+                <div class="brandpanel__block">
+                  <span class="brandpanel__label">Tipografía</span>
+                  <span class="brandpanel__type">Aa <em>Display</em> · Aa Text</span>
+                </div>
+                <ul class="checks">
+                  <li><span class="tick" aria-hidden="true">✓</span> Logo &amp; área de resguardo</li>
+                  <li><span class="tick" aria-hidden="true">✓</span> Contraste accesible</li>
+                  <li><span class="tick" aria-hidden="true">✓</span> Tono de voz</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 2: Briefing (reversed) -->
+      <div class="feature feature--alt">
+        <div class="wrap feature__grid feature__grid--rev">
+          <div class="feature__text reveal">
+            <p class="eyebrow">Briefing</p>
+            <h3 class="feature__title">Estrategia y creatividad, co-creadas.</h3>
+            <p class="feature__body">Traducí objetivos de negocio en briefs claros y narrativas potentes. Hike propone, vos decidís — una co-creación estratégica que ahorra semanas.</p>
+          </div>
+          <div class="feature__media reveal">
+            <div class="mock mock--brief" role="img" aria-label="Documento de brief con objetivo, insight, mensaje clave y etiquetas de estrategia.">
+              <div class="mock__bar mock__bar--titled">
+                <span class="mock__sq" aria-hidden="true"></span>
+                <span class="mock__title">Brief — Aurora</span>
+                <span class="mock__meta">Borrador</span>
+              </div>
+              <div class="briefdoc">
+                <div class="briefdoc__row"><span class="briefdoc__k">Objetivo</span><span class="ln ln--80"></span></div>
+                <div class="briefdoc__row"><span class="briefdoc__k">Insight</span><span class="ln ln--100"></span></div>
+                <div class="briefdoc__row"><span class="briefdoc__k">Insight</span><span class="ln ln--65"></span></div>
+                <div class="briefdoc__row"><span class="briefdoc__k">Mensaje</span><span class="ln ln--90"></span></div>
+                <div class="briefdoc__tags">
+                  <span class="tag tag--accent">Awareness</span>
+                  <span class="tag">Consideración</span>
+                  <span class="tag">Gen Z</span>
+                  <span class="tag">Omnicanal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 3: Personalización omnicanal -->
+      <div class="feature">
+        <div class="wrap feature__grid">
+          <div class="feature__text reveal">
+            <p class="eyebrow">Personalización omnicanal</p>
+            <h3 class="feature__title">Imagen y video, a escala.</h3>
+            <p class="feature__body">Una idea, todos los canales. Generá y adaptá imagen y video multicanal en minutos, con la misma dirección estética de punta a punta.</p>
+          </div>
+          <div class="feature__media reveal">
+            <div class="mock mock--omni" role="img" aria-label="Una misma campaña adaptada a formatos de story vertical, cuadrado, banner y video.">
+              <div class="mock__bar mock__bar--titled">
+                <span class="mock__grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <span class="mock__title">Exportar</span>
+                <span class="mock__meta">4 formatos</span>
+              </div>
+              <div class="omni">
+                <div class="omni__frame omni__frame--story">
+                  <div class="ad">
+                    <span class="ad__brand">Aurora</span>
+                    <p class="ad__head">Brillá esta primavera.</p>
+                    <span class="ad__cta ad__cta--dark">Ver más</span>
+                  </div>
+                  <span class="omni__tag">9:16</span>
+                </div>
+                <div class="omni__frame omni__frame--sq">
+                  <div class="ad ad--duo">
+                    <span class="ad__brand">Aurora</span>
+                    <p class="ad__head">Nueva colección.</p>
+                    <span class="ad__cta ad__cta--light">Comprar</span>
+                  </div>
+                  <span class="omni__tag">1:1</span>
+                </div>
+                <div class="omni__frame omni__frame--wide">
+                  <div class="ad">
+                    <span class="ad__brand">Aurora</span>
+                    <p class="ad__head ad__head--sm">Envío gratis</p>
+                  </div>
+                  <span class="omni__tag">16:9</span>
+                </div>
+                <div class="omni__frame omni__frame--video">
+                  <div class="ad ad--duo ad--reel">
+                    <span class="ad__brand">Aurora</span>
+                    <span class="ad__play" aria-hidden="true"></span>
+                    <p class="ad__head ad__head--sm">Campaña primavera</p>
+                  </div>
+                  <span class="omni__tag">Video</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MÉTRICAS ============ -->
+    <section class="metrics" aria-labelledby="metrics-title">
+      <div class="wrap">
+        <h2 class="visually-hidden" id="metrics-title">Resultados</h2>
+        <div class="metrics__grid">
+          <div class="metric reveal">
+            <span class="metric__num" data-target="-60" data-prefix="−" data-suffix="%">−60%</span>
+            <span class="metric__label">tiempo de gestión</span>
+          </div>
+          <div class="metric reveal">
+            <span class="metric__num" data-target="-50" data-prefix="−" data-suffix="%">−50%</span>
+            <span class="metric__label">tiempo de producción</span>
+          </div>
+          <div class="metric reveal">
+            <span class="metric__num" data-target="75" data-prefix="+" data-suffix="%">+75%</span>
+            <span class="metric__label">ROI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRECIOS ============ -->
+    <section class="pricing" id="precios" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <header class="section-head section-head--center reveal">
+          <p class="eyebrow">Precios</p>
+          <h2 class="section-title" id="pricing-title">Elegí el plan que te representa.</h2>
+        </header>
+
+        <div class="tiers">
+          <!-- Individual -->
+          <article class="tier reveal">
+            <header class="tier__head">
+              <h3 class="tier__name">Individual</h3>
+              <p class="tier__price"><span class="tier__amount">US$80</span><span class="tier__per">/mes</span></p>
+            </header>
+            <ul class="tier__list">
+              <li><span class="tick" aria-hidden="true">✓</span> Hasta 100 imágenes o 10 videos/mes</li>
+              <li><span class="tick" aria-hidden="true">✓</span> IA multi-modelo</li>
+              <li><span class="tick" aria-hidden="true">✓</span> 1 marca</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Workspace individual</li>
+            </ul>
+            <a class="btn btn--pill btn--block" href="#contacto">Comenzar ahora</a>
+          </article>
+
+          <!-- Teams (recomendado) -->
+          <article class="tier tier--featured reveal">
+            <span class="tier__badge">Recomendado</span>
+            <header class="tier__head">
+              <h3 class="tier__name">Teams</h3>
+              <p class="tier__price"><span class="tier__amount">US$200</span><span class="tier__per">/mes</span></p>
+            </header>
+            <ul class="tier__list">
+              <li><span class="tick" aria-hidden="true">✓</span> 250 imágenes o 25 videos/mes</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Multi-marca</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Hasta 5 roles</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Espacio colaborativo</li>
+            </ul>
+            <a class="btn btn--pill btn--primary btn--block" href="#contacto">Comenzar ahora</a>
+          </article>
+
+          <!-- Enterprise -->
+          <article class="tier reveal">
+            <header class="tier__head">
+              <h3 class="tier__name">Enterprise</h3>
+              <p class="tier__price"><span class="tier__amount">A medida</span></p>
+            </header>
+            <ul class="tier__list">
+              <li><span class="tick" aria-hidden="true">✓</span> Generación ilimitada</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Multi-marca</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Soporte prioritario</li>
+              <li><span class="tick" aria-hidden="true">✓</span> Account manager dedicado</li>
+              <li><span class="tick" aria-hidden="true">✓</span> SLA + onboarding</li>
+            </ul>
+            <a class="btn btn--pill btn--block" href="#contacto">Hablar con ventas</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="finalcta" aria-labelledby="finalcta-title">
+      <div class="wrap finalcta__inner reveal">
+        <h2 class="finalcta__title" id="finalcta-title">Empezá a crear diferente.</h2>
+        <a class="btn btn--pill btn--primary btn--lg" href="#contacto">Empezar ahora <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div class="wrap contact__grid">
+        <div class="contact__intro reveal">
+          <p class="eyebrow">Contacto</p>
+          <h2 class="section-title" id="contact-title">Hablemos de tu marca.</h2>
+          <p class="contact__lede">Contanos qué estás construyendo. Un especialista te escribe con los próximos pasos.</p>
+          <ul class="contact__meta">
+            <li>
+              <span class="contact__meta-k">Email directo</span>
+              <a class="contact__meta-v" href="mailto:hola@hikecreative.com">hola@hikecreative.com</a>
+            </li>
+            <li>
+              <span class="contact__meta-k">Tiempo de respuesta</span>
+              <span class="contact__meta-v">&lt; 24 h hábiles</span>
+            </li>
+            <li>
+              <span class="contact__meta-k">Ventas</span>
+              <a class="contact__meta-v" href="mailto:ventas@hikecreative.com">ventas@hikecreative.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="form reveal" novalidate>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="given-name" placeholder="Ada" />
+            </div>
+            <div class="form__field">
+              <label for="apellido">Apellido</label>
+              <input id="apellido" name="apellido" type="text" autocomplete="family-name" placeholder="Lovelace" />
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="ada@marca.com" />
+            </div>
+            <div class="form__field">
+              <label for="empresa">Empresa</label>
+              <input id="empresa" name="empresa" type="text" autocomplete="organization" placeholder="Aurora" />
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="cargo">Cargo</label>
+            <input id="cargo" name="cargo" type="text" autocomplete="organization-title" placeholder="Head of Brand" />
+          </div>
+          <div class="form__field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Queremos escalar nuestra producción creativa…"></textarea>
+          </div>
+          <button class="btn btn--pill btn--primary btn--block" type="submit">Enviar</button>
+          <p class="form__note" role="status">Formulario de demostración — no envía datos.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div class="footer__brand">
+        <a class="brand brand--footer" href="#top" aria-label="Hike Creative, inicio">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="24" height="24">
+              <path d="M5 23.5 L12.5 11 L17.5 18 L26.5 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="26.5" cy="6" r="2.4" fill="#AD87FF"/>
+            </svg>
+          </span>
+          <span class="brand__word">Hike&nbsp;Creative</span>
+        </a>
+        <p class="footer__tag">Inteligencia creativa para marcas.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Producto">
+        <h4>Producto</h4>
+        <a href="#proceso">Proceso</a>
+        <a href="#plataforma">Plataforma</a>
+        <a href="#precios">Precios</a>
+      </nav>
+      <nav class="footer__col" aria-label="Empresa">
+        <h4>Empresa</h4>
+        <a href="#contacto">Contacto</a>
+        <a href="#top">Nosotros</a>
+        <a href="#top">Clientes</a>
+      </nav>
+      <nav class="footer__col" aria-label="Legal">
+        <h4>Legal</h4>
+        <a href="#top">Privacidad</a>
+        <a href="#top">Términos</a>
+        <a href="#top">Cookies</a>
+      </nav>
+    </div>
+    <div class="wrap footer__bottom">
+      <p>© 2026 Hike Creative</p>
+      <p class="footer__made">Diseñado con precisión.</p>
+    </div>
+  </footer>
+
+  <!-- First-party motion only: reveal + count-up via IntersectionObserver,
+       native smooth-scroll. No third-party libraries. -->
+  <script src="script.js" defer></script>
+</body>
+</html>
