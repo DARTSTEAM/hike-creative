@@ -17,6 +17,21 @@
   src: url("fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
 }
 
+/* ---------- Display face: Bricolage Grotesque ----------
+   Self-hosted (subset: latin), variable wght 200–800 + opsz axis.
+   Warm, characterful grotesque — carries every headline so the type
+   reads as authored, not system-default. Body stays SF/Inter. */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("fonts/bricolage-grotesque-latin.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ---------- Design tokens ---------- */
 :root {
   --white: #ffffff;
@@ -29,6 +44,19 @@
   --hair-soft: #e8e8ed;
   --violet: #ad87ff;    /* Cosmos Violet — eyedropper only */
   --violet-ink: #7b52d6;/* accessible violet for text/links on white */
+  --violet-deep: #5b39a8;
+  --violet-scene: #171226; /* deep violet-ink base for the CTA scene */
+
+  /* ---- Thermal motif (el calor): the brand's cold→warm spectrum ----
+     A temperature thread that runs the site — brief (frío) → pieza (cálido).
+     Violet stays the anchor in the middle; heat blooms into ember + amber. */
+  --cold: #7f92ff;      /* cool periwinkle — the cold brief */
+  --warm: #ff9166;      /* ember */
+  --warm-2: #ffc24d;    /* amber highlight */
+  --heat-line: linear-gradient(90deg, var(--cold) 0%, var(--violet) 44%, var(--warm) 82%, var(--warm-2) 100%);
+  --manifesto-bg: #17101a; /* deep warm plum-black — the Heat scene */
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", var(--font);
 
   --r-card: 20px;
   --r-mock: 22px;
@@ -244,11 +272,16 @@ strong { font-weight: 600; }
   border-bottom: 1px solid var(--hair-soft);
   background: #fbfbfd;
 }
-.dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
-.dot--r { background: #ff5f57; }
-.dot--y { background: #febc2e; }
-.dot--g { background: #28c840; }
-.appwin__title { margin-left: 12px; font-size: 13px; color: var(--gray); font-weight: 500; }
+/* Bespoke window chrome — a small brand-chevron tile instead of the
+   worn macOS traffic-light dots. Authored, quiet, on-motif. */
+.appwin__mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 8px; flex: none;
+  color: var(--ink);
+  background: linear-gradient(150deg, #ffffff, #efeafb);
+  box-shadow: inset 0 0 0 1px rgba(29,29,31,.08), 0 1px 2px rgba(0,0,0,.05);
+}
+.appwin__title { margin-left: 10px; font-size: 13px; color: var(--gray); font-weight: 500; }
 .appwin__chip {
   margin-left: auto; font-size: 12px; font-weight: 500; color: var(--violet-ink);
   background: rgba(173,135,255,.12); padding: 4px 10px; border-radius: var(--r-pill);
@@ -417,7 +450,7 @@ strong { font-weight: 600; }
 /* =========================================================
    PLATFORM
    ========================================================= */
-.platform { background: var(--panel); padding-block: var(--section-y); }
+.platform { background: var(--panel); padding-block: var(--section-y); overflow-x: clip; }
 .feature { padding-block: clamp(40px, 7vw, 80px); }
 .feature--alt { }
 .feature__grid {
@@ -655,6 +688,7 @@ html.animate-ready .reveal.is-visible {
 }
 /* Failsafe: if script.js never runs, content still appears. */
 html.reveal-fallback .reveal { opacity: 1 !important; transform: none !important; }
+html.reveal-fallback .reveal--wipe { clip-path: none !important; }
 
 @media (prefers-reduced-motion: reduce) {
   html.animate-ready .reveal { opacity: 1 !important; transform: none !important; transition: none; }
@@ -740,4 +774,475 @@ html.reveal-fallback .reveal { opacity: 1 !important; transform: none !important
   .ad__sub { display: none; }
   .hero__cta { gap: 6px; }
   .hero__cta .btn { width: 100%; }
+}
+
+/* =========================================================
+   =========================================================
+   ELEVATION LAYER
+   Character, flow and a signature moment — layered on top of
+   the Apple-clean base. Everything here degrades gracefully:
+   nothing depends on GSAP/Lenis to be readable, and every
+   elaborate motion is disabled under prefers-reduced-motion.
+   =========================================================
+   ========================================================= */
+
+/* ---------- 1 · Display typography with character ----------
+   Bricolage carries every headline. Body copy stays SF/Inter. */
+.hero__title, .section-title, .feature__title, .finalcta__title,
+.step__body h3, .tier__name, .tier__amount, .metric__num,
+.brandpanel__score, .manifesto__line, .marquee__item,
+.brand__word {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+.hero__title { font-weight: 700; letter-spacing: -0.035em; line-height: 0.98; }
+.section-title { font-weight: 700; letter-spacing: -0.03em; }
+.feature__title { font-weight: 700; letter-spacing: -0.03em; }
+.finalcta__title { font-weight: 700; letter-spacing: -0.035em; }
+.step__body h3 { font-weight: 600; }
+.tier__name { font-weight: 700; }
+.tier__amount { font-weight: 700; }
+.metric__num { font-weight: 700; letter-spacing: -0.045em; }
+.brandpanel__score { font-weight: 700; }
+.brand__word { font-weight: 700; letter-spacing: -0.02em; }
+
+/* ---------- 2 · Global grain (calidez anti-IA) ----------
+   A single fixed SVG-noise plane at ~4% — reads as paper tooth,
+   not as a filter. Sits above content, ignores pointer. */
+.grain {
+  position: fixed; inset: 0; z-index: 9;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- 3 · Editorial section index ----------
+   The eyebrow gains a numbered prefix — a small authored tell. */
+.eyebrow[data-index] {
+  display: flex; align-items: baseline; gap: 12px;
+  letter-spacing: .04em;
+  font-family: var(--font-display); font-optical-sizing: auto;
+}
+.section-head--center .eyebrow[data-index] { justify-content: center; }
+.eyebrow[data-index]::before {
+  content: attr(data-index);
+  font-weight: 700; font-size: 13px; letter-spacing: 0;
+  color: var(--violet-ink);
+  font-variant-numeric: tabular-nums;
+}
+.eyebrow[data-index]::after {
+  content: ""; align-self: center;
+  width: 22px; height: 1px; background: var(--hair);
+  margin-left: -4px;
+}
+.section-head--center .eyebrow[data-index]::after { display: none; }
+
+/* ---------- 4 · Choreographed reveals ----------
+   Baseline (IntersectionObserver): opacity + rise + a whisper of
+   scale. Groups stagger via nth-child delay — no JS timeline needed.
+   GSAP, when present, layers parallax / pins / draws on top. */
+html.animate-ready .reveal {
+  transform: translateY(28px) scale(.988);
+  transition: opacity .85s var(--ease), transform .95s var(--ease);
+}
+html.animate-ready .reveal.is-visible { transform: none; }
+
+html.animate-ready .steps .step.is-visible { transition-delay: calc(var(--i, 0) * 90ms); }
+html.animate-ready .tiers .tier.is-visible { transition-delay: calc(var(--i, 0) * 80ms); }
+html.animate-ready .metrics__grid .metric.is-visible { transition-delay: calc(var(--i, 0) * 110ms); }
+.steps .step:nth-child(2), .tiers .tier:nth-child(2), .metrics__grid .metric:nth-child(2) { --i: 1; }
+.steps .step:nth-child(3), .tiers .tier:nth-child(3), .metrics__grid .metric:nth-child(3) { --i: 2; }
+
+/* ---------- 4b · Distinct motion grammars ----------
+   Sections shouldn't all arrive the same way. Beyond the base rise+fade:
+   • a clip-path WIPE for the closing statement (reveals L→R), and
+   • a horizontal SLIDE for the platform features (text/media pass each
+     other). The manifesto adds a third grammar — a thermal color sweep.
+   Each element still carries plain `.reveal` so the IntersectionObserver
+   toggles it; these modifiers only change the arrival. */
+html.animate-ready .reveal--wipe {
+  opacity: 1; transform: none;
+  clip-path: inset(-30% 100% -30% 0);
+  transition: clip-path 1s var(--ease), opacity .5s var(--ease);
+}
+/* Open state uses negative insets so the finished element never clips its
+   own hover glows / drop-shadows — only the horizontal (right) edge is
+   animated, giving a clean left→right wipe. */
+html.animate-ready .reveal--wipe.is-visible { clip-path: inset(-30% -30% -30% 0); }
+
+/* Horizontal slide — desktop only (side room), so a translate can never
+   push a stacked mobile column past the viewport edge. */
+@media (min-width: 900px) {
+  html.animate-ready .reveal--left  { transform: translateX(-40px); }
+  html.animate-ready .reveal--right { transform: translateX(40px); }
+}
+
+/* ---------- 5 · HERO — living demo (momento firma) ---------- */
+.hero { position: relative; }
+
+/* Ambient violet wash behind the whole hero — organic, blurred, NOT linear */
+.hero__aura {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+}
+.hero__aura::before, .hero__aura::after {
+  content: ""; position: absolute; border-radius: 50%;
+  filter: blur(90px); opacity: .55;
+}
+.hero__aura::before {
+  width: 52vw; height: 52vw; left: -8vw; top: -14vw;
+  background: radial-gradient(circle at 40% 40%, rgba(173,135,255,.42), rgba(173,135,255,0) 68%);
+}
+.hero__aura::after {
+  width: 46vw; height: 46vw; right: -6vw; top: 6vw;
+  background: radial-gradient(circle at 60% 40%, rgba(217,211,255,.5), rgba(217,211,255,0) 66%);
+}
+.hero__copy, .hero .wrap { position: relative; z-index: 1; }
+
+/* Kinetic title: words ride up out of a mask. Only engaged once GSAP
+   confirms — otherwise the plain .reveal handles the title. */
+html.gsap-ready .hero__title { opacity: 1 !important; transform: none !important; }
+html.gsap-ready .hero__title .word {
+  display: inline-block; overflow: hidden; vertical-align: top;
+  padding-bottom: 0.06em; margin-bottom: -0.06em;
+}
+html.gsap-ready .hero__title .word__in { display: inline-block; will-change: transform; }
+
+/* App-window stage + violet glow */
+.appstage { position: relative; }
+.appstage__glow {
+  position: absolute; z-index: 0; pointer-events: none;
+  left: 50%; top: 52%; transform: translate(-50%, -50%);
+  width: min(92%, 940px); height: 78%;
+  background: radial-gradient(ellipse at 50% 45%, rgba(173,135,255,.55), rgba(173,135,255,.14) 46%, rgba(173,135,255,0) 72%);
+  filter: blur(46px);
+  opacity: .9;
+}
+.appstage .appwin { position: relative; z-index: 1; }
+
+/* Generation sweep across the tile grid */
+.assets { position: relative; }
+.assets__scan {
+  position: absolute; left: 0; right: 0; top: 0; height: 42%;
+  z-index: 3; pointer-events: none; opacity: 0;
+  background: linear-gradient(180deg, rgba(173,135,255,0) 0%, rgba(173,135,255,.16) 46%, rgba(173,135,255,.42) 50%, rgba(173,135,255,.16) 54%, rgba(173,135,255,0) 100%);
+  mix-blend-mode: screen;
+}
+/* Each tile art gets a soft violet edge-glow while "generating" */
+.asset__art { transition: box-shadow .5s var(--ease); }
+.asset.is-generating .asset__art {
+  box-shadow: inset 0 0 0 1px rgba(173,135,255,.6), 0 0 0 3px rgba(173,135,255,.16), 0 10px 30px rgba(173,135,255,.22);
+}
+.ad__head.is-swapping { filter: blur(6px); opacity: 0; transition: opacity .28s var(--ease), filter .28s var(--ease); }
+.ad__head { transition: opacity .32s var(--ease), filter .32s var(--ease); }
+
+/* "IA activa" chip + generate button breathe (motion only) */
+html.animate-ready .appwin__chip { position: relative; }
+html.animate-ready .appwin__chip::before {
+  content: ""; position: absolute; left: 9px; top: 50%; width: 5px; height: 5px;
+  transform: translateY(-50%); border-radius: 50%; background: var(--violet-ink);
+  box-shadow: 0 0 0 0 rgba(173,135,255,.6);
+  animation: pulseDot 2.4s var(--ease) infinite;
+}
+html.animate-ready .appwin__chip { padding-left: 20px; }
+.brief__gen { position: relative; overflow: hidden; }
+html.animate-ready .brief__gen::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent 20%, rgba(173,135,255,.5) 50%, transparent 80%);
+  transform: translateX(-120%);
+  animation: sheen 3.6s var(--ease) infinite;
+}
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(173,135,255,.55); }
+  70% { box-shadow: 0 0 0 7px rgba(173,135,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(173,135,255,0); }
+}
+@keyframes sheen {
+  0%, 55% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+/* ---------- 6 · MANIFESTO — the Heat (momento firma / soul) ----------
+   The concept made visible. A warm, flooded scene where the words heat
+   up as you read (cold→warm color sweep), the promise radiates real
+   warmth, and a thermal gauge (frío→cálido, brief→pieza) is the brand's
+   own graphic motif. This is the second bold color bet and the one
+   gesture only Hike could own. */
+.manifesto {
+  position: relative;
+  background: var(--manifesto-bg);
+  color: #efe6dd;
+  padding-block: clamp(120px, 22vw, 260px);
+  overflow: hidden;
+}
+.manifesto__inner {
+  position: relative; z-index: 1;
+  max-width: 1040px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(30px, 6vw, 76px);
+  align-items: stretch;
+}
+.manifesto__main { min-width: 0; }
+
+/* Heat-motif line + editorial label */
+.manifesto__heatline {
+  display: block; width: clamp(64px, 11vw, 132px); height: 3px;
+  border-radius: 3px; background: var(--heat-line);
+  margin-bottom: 26px;
+}
+.manifesto__label {
+  font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: #b6a9c9; margin-bottom: 30px;
+}
+
+/* Giant, broken statement */
+.manifesto__line {
+  font-size: clamp(33px, 6vw, 84px);
+  font-weight: 700; letter-spacing: -0.03em; line-height: 1.05;
+  text-wrap: balance;
+}
+.manifesto__line .mword { color: #efe6dd; }
+/* The promise — large-scale warm→violet type that radiates heat.
+   Solid warm fallback first; the gradient-text only engages where
+   background-clip:text is supported, so the payoff is never invisible. */
+.mheat {
+  display: block; margin-top: 0.16em;
+  color: #ffab72;
+  filter: drop-shadow(0 0 24px rgba(255,132,84,.28));
+  animation: heatPulse 4.8s ease-in-out infinite;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .mheat {
+    background: linear-gradient(96deg, #ffc46b 0%, #ff8a5e 38%, #ff6f9c 63%, #b79bff 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+}
+@keyframes heatPulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(255,132,84,.22)); }
+  50%      { filter: drop-shadow(0 0 42px rgba(255,150,92,.5)); }
+}
+
+/* Warm haze radiating from the promise */
+.manifesto__glow {
+  position: absolute; z-index: 0; pointer-events: none;
+  left: 4%; bottom: -14vw; width: 56vw; height: 56vw; border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,138,80,.30), rgba(255,90,120,.12) 42%, rgba(255,90,120,0) 70%);
+  filter: blur(84px);
+}
+
+/* Thermal gauge — the bespoke brand motif: brief (frío) → pieza (cálido).
+   Default --rise:1 renders a complete gauge with zero JS; GSAP fills it
+   from 0 as the section is read. */
+.thermo {
+  --rise: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  height: 100%; min-height: clamp(230px, 42vh, 440px);
+}
+.thermo__cap {
+  font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: #d1a069; max-width: 84px; text-align: center; line-height: 1.35;
+}
+.thermo__cap--cold { color: #93a4dc; }
+.thermo__track {
+  position: relative; flex: 1; width: 8px; border-radius: 6px;
+  background: rgba(255,255,255,.09);
+}
+.thermo__fill {
+  position: absolute; inset: 0; border-radius: 6px;
+  background: linear-gradient(180deg, var(--warm-2) 0%, var(--warm) 28%, var(--violet) 62%, var(--cold) 100%);
+  clip-path: inset(calc((1 - var(--rise)) * 100%) 0 0 0 round 6px);
+}
+.thermo__bead {
+  position: absolute; left: 50%; bottom: calc(var(--rise) * 100%);
+  transform: translate(-50%, 50%);
+  width: 15px; height: 15px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 34%, #fff2d6, var(--warm-2) 55%, var(--warm));
+  box-shadow: 0 0 16px 3px rgba(255,168,84,.55);
+}
+
+/* ---------- 7 · Marquee band (author detail) ---------- */
+.marquee {
+  background: var(--white);
+  border-block: 1px solid var(--hair-soft);
+  padding-block: clamp(20px, 3vw, 34px);
+  overflow: hidden;
+  position: relative;
+}
+.marquee__track {
+  display: flex; width: max-content; gap: 0;
+  will-change: transform;
+  animation: marquee 42s linear infinite;
+}
+.marquee__group { display: flex; flex: none; }
+.marquee__item {
+  font-size: clamp(30px, 5vw, 62px);
+  font-weight: 700; letter-spacing: -0.02em; line-height: 1;
+  padding-inline: clamp(18px, 3vw, 40px);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--hair);
+  text-stroke: 1px var(--hair);
+  display: inline-flex; align-items: center; gap: clamp(18px, 3vw, 40px);
+}
+.marquee__item::after {
+  content: "✦"; -webkit-text-stroke: 0; color: var(--violet); font-size: .5em;
+}
+.marquee__item--solid { color: var(--ink); -webkit-text-stroke: 0; text-stroke: 0; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+
+/* ---------- 8 · Process rail that draws ----------
+   A left-margin spine (in the indent, clear of the numerals) whose
+   violet fill grows as you descend the steps. */
+.steps { position: relative; }
+.steps__rail {
+  --draw: 0;
+  position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px;
+  background: var(--hair-soft); border-radius: 2px; z-index: 0; overflow: hidden;
+}
+.steps__rail::after {
+  content: ""; position: absolute; inset: 0; border-radius: 2px;
+  background: linear-gradient(180deg, var(--violet), var(--violet-ink));
+  transform: scaleY(var(--draw, 0)); transform-origin: top;
+}
+.step { position: relative; z-index: 1; }
+.step__num { position: relative; display: inline-block; }
+@media (min-width: 641px) { .steps { padding-left: 36px; } }
+@media (max-width: 640px) { .steps__rail { display: none; } }
+
+/* ---------- 9 · Metrics with violet confidence ---------- */
+.metrics { position: relative; overflow: hidden; }
+.metrics__aura {
+  position: absolute; z-index: 0; pointer-events: none;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 70vw; height: 60vh;
+  background: radial-gradient(ellipse at 50% 50%, rgba(173,135,255,.30), rgba(173,135,255,0) 62%);
+  filter: blur(50px);
+}
+.metrics .wrap { position: relative; z-index: 1; }
+.metric__num { position: relative; display: inline-block; }
+/* The ROI metric leads in violet — emotional accent on the win */
+.metric--accent .metric__num {
+  background: linear-gradient(180deg, #d9c8ff, var(--violet));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.metric__num::after {
+  content: ""; position: absolute; left: 50%; bottom: -14px; transform: translateX(-50%) scaleX(var(--u, 0));
+  width: 46px; height: 3px; border-radius: 3px; background: var(--violet);
+  transform-origin: center; transition: transform .7s var(--ease);
+}
+.metric.is-visible .metric__num::after { --u: 1; }
+
+/* ---------- 10 · Final CTA — the violet moment ---------- */
+.finalcta {
+  position: relative; overflow: hidden;
+  background: var(--violet-scene); color: #fff;
+}
+.finalcta__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.finalcta__bg::before, .finalcta__bg::after {
+  content: ""; position: absolute; border-radius: 50%; filter: blur(72px);
+}
+.finalcta__bg::before {
+  width: 60vw; height: 60vw; left: -10vw; top: -22vw;
+  background: radial-gradient(circle at 50% 50%, rgba(173,135,255,.85), rgba(173,135,255,0) 66%);
+  opacity: .7;
+}
+/* Warm ember closes the temperature thread — the calor reaches the payoff. */
+.finalcta__bg::after {
+  width: 52vw; height: 52vw; right: -14vw; bottom: -26vw;
+  background: radial-gradient(circle at 50% 50%, rgba(255,140,86,.72), rgba(255,140,86,0) 68%);
+  opacity: .6;
+}
+.finalcta__spark {
+  position: absolute; z-index: 0; pointer-events: none;
+  left: 50%; top: 42%; transform: translate(-50%, -50%);
+  width: 30vw; height: 30vw; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.22), rgba(255,255,255,0) 60%);
+  filter: blur(30px);
+}
+.finalcta__inner { position: relative; z-index: 1; }
+.finalcta .finalcta__title { color: #fff; }
+.finalcta__kicker {
+  font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  color: rgba(255,255,255,.72); margin-bottom: 4px;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.finalcta__kicker::before { content: ""; width: 22px; height: 1px; background: rgba(255,255,255,.5); }
+/* CTA button becomes a glowing white pill on the violet scene */
+.finalcta .btn--primary {
+  background: #fff; color: var(--ink);
+  box-shadow: 0 10px 40px rgba(0,0,0,.28), 0 0 0 1px rgba(255,255,255,.5) inset;
+}
+.finalcta .btn--primary:hover { background: #fff; box-shadow: 0 14px 48px rgba(0,0,0,.34), 0 0 40px rgba(173,135,255,.5); }
+
+/* ---------- 11 · Micro-interactions & hovers with character ---------- */
+/* Magnetic buttons: JS/GSAP owns transform, so it's kept out of the
+   transition list (otherwise per-frame nudges would lag). */
+.btn--magnetic { will-change: transform; transition: background-color .3s var(--ease), color .3s var(--ease), box-shadow .3s var(--ease); }
+
+/* Nav links: a violet underline that draws in */
+.nav__links a { position: relative; }
+.nav__links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px;
+  background: var(--violet-ink); border-radius: 2px;
+  transform: scaleX(0); transform-origin: left; transition: transform .32s var(--ease);
+}
+.nav__links a:hover::after, .nav__links a:focus-visible::after { transform: scaleX(1); }
+
+/* Asset tiles lift subtly on hover — the demo feels tactile */
+.asset__art { transition: box-shadow .5s var(--ease), transform .4s var(--ease); }
+.appwin:hover .asset:hover .asset__art { transform: translateY(-3px); }
+
+/* Tier cards: a soft violet halo when featured is hovered */
+.tier--featured:hover { box-shadow: var(--shadow-lift), 0 0 60px rgba(173,135,255,.28); }
+
+/* Primary pill gets a subtle violet glow on hover for warmth.
+   The finalcta primary defines its own hover (higher specificity via
+   the .finalcta ancestor), so it keeps its white/violet glow. */
+.btn--primary:hover { box-shadow: 0 8px 30px rgba(173,135,255,.35); }
+
+/* Parallax hooks (GSAP writes --py); harmless when idle */
+.feature__media, .appwin { will-change: transform; }
+
+/* ---------- 12 · Reduced-motion: silence every elaborate motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; transform: none; }
+  .appwin__chip::before { animation: none; }
+  .brief__gen::after { display: none; }
+  .assets__scan { display: none; }
+  .asset.is-generating .asset__art { box-shadow: inset 0 0 0 1px rgba(0,0,0,.05); }
+  .metric__num::after { transition: none; }
+  html.gsap-ready .hero__title .word { overflow: visible; }
+  html.gsap-ready .hero__title .word__in { transform: none !important; }
+  .grain { opacity: .03; }
+  /* New pieces: promise stops pulsing; wipe/thermal arrive settled. */
+  .mheat { animation: none; }
+  html.animate-ready .reveal--wipe { clip-path: none !important; }
+}
+
+/* ---------- 13 · Responsive polish for new pieces ---------- */
+@media (max-width: 860px) {
+  .manifesto__line { text-wrap: pretty; }
+}
+/* Manifesto collapses to a single column; the horizontal heat-line carries
+   the frío→cálido motif once the vertical gauge steps aside. */
+@media (max-width: 720px) {
+  .manifesto__inner { grid-template-columns: 1fr; gap: 0; }
+  .manifesto__aside { display: none; }
+}
+@media (max-width: 640px) {
+  .appstage__glow { height: 62%; filter: blur(34px); }
+  .hero__aura::before, .hero__aura::after { filter: blur(60px); }
+  .manifesto { padding-block: clamp(90px, 26vw, 160px); }
+  .marquee__item { -webkit-text-stroke-width: 0.75px; }
+
+  /* Email tile: let the box grow to its content so the "Leer" CTA is never
+     clipped against the bottom edge in the 2-col mobile grid. */
+  .asset--f .asset__art { aspect-ratio: auto; }
+  .asset--f .ad--email { position: relative; inset: auto; width: 100%; }
+  .ad--email .ad__sub { display: none; }
 }

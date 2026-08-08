@@ -26,14 +26,19 @@
     })();
   </script>
 
-  <!-- Preload the self-hosted webfont so Windows/Android render Inter,
-       not Arial, on first paint (macOS/iOS still get true SF first). -->
+  <!-- Preload the self-hosted webfonts: Inter (body fallback) + Bricolage
+       Grotesque (display). Bricolage carries every headline, so we preload
+       it to avoid a flash of system type on first paint. -->
   <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Global film grain — paper tooth, warmth against the flat minimalism. -->
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="top">
@@ -76,21 +81,28 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__aura" aria-hidden="true"></div>
       <div class="wrap hero__copy">
         <p class="eyebrow reveal">Inteligencia creativa para marcas</p>
         <h1 class="hero__title reveal" id="hero-title">Del brief a la gran idea.</h1>
         <p class="hero__sub reveal">Un solo flujo que conecta estrategia, insights y creatividad con IA. Del objetivo de negocio a piezas listas para publicar — con menos fricción y más foco.</p>
         <div class="hero__cta reveal">
-          <a class="btn btn--pill btn--primary" href="#proceso">Ver cómo funciona <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--pill btn--primary btn--magnetic" href="#proceso">Ver cómo funciona <span class="arrow" aria-hidden="true">→</span></a>
           <a class="btn btn--text" href="#contacto">Hablar con ventas <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
 
-      <!-- Product mockup: app window -->
-      <div class="wrap">
+      <!-- Product mockup: a living app window that demonstrates the product -->
+      <div class="wrap appstage">
+        <div class="appstage__glow" aria-hidden="true"></div>
         <div class="appwin reveal" id="heroMock" role="img" aria-label="Interfaz de Hike Creative: un panel de brief a la izquierda y una grilla de seis piezas generadas por IA a la derecha.">
           <div class="appwin__bar">
-            <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+            <span class="appwin__mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="15" height="15">
+                <path d="M5 23.5 L12.5 11 L17.5 18 L26.5 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="26.5" cy="6" r="3" fill="#AD87FF"/>
+              </svg>
+            </span>
             <span class="appwin__title">Campaña — Lanzamiento Primavera</span>
             <span class="appwin__chip">IA activa</span>
           </div>
@@ -135,6 +147,7 @@
 
             <!-- Assets grid: each tile is a believable generated piece -->
             <div class="assets" aria-hidden="true">
+              <div class="assets__scan" aria-hidden="true"></div>
               <figure class="asset asset--a">
                 <div class="asset__art">
                   <div class="ad">
@@ -215,15 +228,44 @@
       </div>
     </section>
 
+    <!-- ============ MANIFIESTO — "el calor" (momento firma) ============ -->
+    <section class="manifesto" aria-labelledby="manifesto-title">
+      <div class="manifesto__glow" aria-hidden="true"></div>
+      <div class="wrap manifesto__inner">
+        <!-- Thermal gauge: the brand's own graphic motif — frío → cálido,
+             brief → pieza. Decorative; fills as the section is read. -->
+        <aside class="manifesto__aside" aria-hidden="true">
+          <div class="thermo">
+            <span class="thermo__cap">Cálido · pieza</span>
+            <span class="thermo__track">
+              <span class="thermo__fill"></span>
+              <span class="thermo__bead"></span>
+            </span>
+            <span class="thermo__cap thermo__cap--cold">Frío · brief</span>
+          </div>
+        </aside>
+
+        <div class="manifesto__main">
+          <span class="manifesto__heatline reveal reveal--wipe" aria-hidden="true"></span>
+          <p class="manifesto__label">Por qué existimos — del brief a la pieza</p>
+          <h2 class="manifesto__line" id="manifesto-title" data-manifesto>
+            <span class="mword">La</span> <span class="mword">mayoría</span> <span class="mword">de</span> <span class="mword">las</span> <span class="mword">grandes</span> <span class="mword">ideas</span> <span class="mword">se</span> <span class="mword">enfrían</span> <span class="mword">entre</span> <span class="mword">el</span> <span class="mword">brief</span> <span class="mword">y</span> <span class="mword">la</span> <span class="mword">pieza.</span>
+            <span class="mheat">Hike mantiene el calor.</span>
+          </h2>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ CÓMO FUNCIONA ============ -->
     <section class="process" id="proceso" aria-labelledby="process-title">
       <div class="wrap">
         <header class="section-head reveal">
-          <p class="eyebrow">Cómo funciona</p>
+          <p class="eyebrow" data-index="01">Cómo funciona</p>
           <h2 class="section-title" id="process-title">Un flujo, de principio a fin.</h2>
         </header>
 
         <ol class="steps">
+          <span class="steps__rail" aria-hidden="true"></span>
           <li class="step reveal">
             <span class="step__num">01</span>
             <div class="step__body">
@@ -249,11 +291,35 @@
       </div>
     </section>
 
+    <!-- ============ MARQUEE (detalle de autor) ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span class="marquee__item">Estrategia</span>
+          <span class="marquee__item">Insights</span>
+          <span class="marquee__item marquee__item--solid">Creatividad</span>
+          <span class="marquee__item">Imagen</span>
+          <span class="marquee__item">Video</span>
+          <span class="marquee__item">Omnicanal</span>
+          <span class="marquee__item">Marca</span>
+        </div>
+        <div class="marquee__group">
+          <span class="marquee__item">Estrategia</span>
+          <span class="marquee__item">Insights</span>
+          <span class="marquee__item marquee__item--solid">Creatividad</span>
+          <span class="marquee__item">Imagen</span>
+          <span class="marquee__item">Video</span>
+          <span class="marquee__item">Omnicanal</span>
+          <span class="marquee__item">Marca</span>
+        </div>
+      </div>
+    </div>
+
     <!-- ============ PLATAFORMA ============ -->
     <section class="platform" id="plataforma" aria-labelledby="platform-title">
       <div class="wrap">
         <header class="section-head section-head--center reveal">
-          <p class="eyebrow">Plataforma</p>
+          <p class="eyebrow" data-index="02">Plataforma</p>
           <h2 class="section-title" id="platform-title">La ingeniería de tu creatividad.</h2>
         </header>
       </div>
@@ -261,12 +327,12 @@
       <!-- Block 1: Brand Intelligence -->
       <div class="feature">
         <div class="wrap feature__grid">
-          <div class="feature__text reveal">
+          <div class="feature__text reveal reveal--left">
             <p class="eyebrow">Brand Intelligence</p>
             <h3 class="feature__title">Tu marca, respetada al detalle.</h3>
             <p class="feature__body">Cada color, tipografía y tono se convierten en reglas vivas. El resultado: <strong>100% de compliance de marca</strong> en cada pieza, sin revisiones interminables.</p>
           </div>
-          <div class="feature__media reveal">
+          <div class="feature__media reveal reveal--right">
             <div class="mock mock--brand" role="img" aria-label="Panel de compliance de marca mostrando paleta, tipografía y un puntaje de 100%.">
               <div class="mock__bar mock__bar--titled">
                 <span class="mock__led" aria-hidden="true"></span>
@@ -306,12 +372,12 @@
       <!-- Block 2: Briefing (reversed) -->
       <div class="feature feature--alt">
         <div class="wrap feature__grid feature__grid--rev">
-          <div class="feature__text reveal">
+          <div class="feature__text reveal reveal--right">
             <p class="eyebrow">Briefing</p>
             <h3 class="feature__title">Estrategia y creatividad, co-creadas.</h3>
             <p class="feature__body">Traducí objetivos de negocio en briefs claros y narrativas potentes. Hike propone, vos decidís — una co-creación estratégica que ahorra semanas.</p>
           </div>
-          <div class="feature__media reveal">
+          <div class="feature__media reveal reveal--left">
             <div class="mock mock--brief" role="img" aria-label="Documento de brief con objetivo, insight, mensaje clave y etiquetas de estrategia.">
               <div class="mock__bar mock__bar--titled">
                 <span class="mock__sq" aria-hidden="true"></span>
@@ -338,12 +404,12 @@
       <!-- Block 3: Personalización omnicanal -->
       <div class="feature">
         <div class="wrap feature__grid">
-          <div class="feature__text reveal">
+          <div class="feature__text reveal reveal--left">
             <p class="eyebrow">Personalización omnicanal</p>
             <h3 class="feature__title">Imagen y video, a escala.</h3>
             <p class="feature__body">Una idea, todos los canales. Generá y adaptá imagen y video multicanal en minutos, con la misma dirección estética de punta a punta.</p>
           </div>
-          <div class="feature__media reveal">
+          <div class="feature__media reveal reveal--right">
             <div class="mock mock--omni" role="img" aria-label="Una misma campaña adaptada a formatos de story vertical, cuadrado, banner y video.">
               <div class="mock__bar mock__bar--titled">
                 <span class="mock__grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
@@ -391,6 +457,7 @@
 
     <!-- ============ MÉTRICAS ============ -->
     <section class="metrics" aria-labelledby="metrics-title">
+      <div class="metrics__aura" aria-hidden="true"></div>
       <div class="wrap">
         <h2 class="visually-hidden" id="metrics-title">Resultados</h2>
         <div class="metrics__grid">
@@ -402,7 +469,7 @@
             <span class="metric__num" data-target="-50" data-prefix="−" data-suffix="%">−50%</span>
             <span class="metric__label">tiempo de producción</span>
           </div>
-          <div class="metric reveal">
+          <div class="metric metric--accent reveal">
             <span class="metric__num" data-target="75" data-prefix="+" data-suffix="%">+75%</span>
             <span class="metric__label">ROI</span>
           </div>
@@ -414,7 +481,7 @@
     <section class="pricing" id="precios" aria-labelledby="pricing-title">
       <div class="wrap">
         <header class="section-head section-head--center reveal">
-          <p class="eyebrow">Precios</p>
+          <p class="eyebrow" data-index="03">Precios</p>
           <h2 class="section-title" id="pricing-title">Elegí el plan que te representa.</h2>
         </header>
 
@@ -469,11 +536,14 @@
       </div>
     </section>
 
-    <!-- ============ CTA FINAL ============ -->
+    <!-- ============ CTA FINAL (el momento violeta) ============ -->
     <section class="finalcta" aria-labelledby="finalcta-title">
-      <div class="wrap finalcta__inner reveal">
+      <div class="finalcta__bg" aria-hidden="true"></div>
+      <div class="finalcta__spark" aria-hidden="true"></div>
+      <div class="wrap finalcta__inner reveal reveal--wipe">
+        <p class="finalcta__kicker">Tu próxima campaña empieza acá</p>
         <h2 class="finalcta__title" id="finalcta-title">Empezá a crear diferente.</h2>
-        <a class="btn btn--pill btn--primary btn--lg" href="#contacto">Empezar ahora <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn--pill btn--primary btn--lg btn--magnetic" href="#contacto">Empezar ahora <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -481,7 +551,7 @@
     <section class="contact" id="contacto" aria-labelledby="contact-title">
       <div class="wrap contact__grid">
         <div class="contact__intro reveal">
-          <p class="eyebrow">Contacto</p>
+          <p class="eyebrow" data-index="04">Contacto</p>
           <h2 class="section-title" id="contact-title">Hablemos de tu marca.</h2>
           <p class="contact__lede">Contanos qué estás construyendo. Un especialista te escribe con los próximos pasos.</p>
           <ul class="contact__meta">
@@ -581,8 +651,14 @@
     </div>
   </footer>
 
-  <!-- First-party motion only: reveal + count-up via IntersectionObserver,
-       native smooth-scroll. No third-party libraries. -->
+  <!-- Cinematic layer: GSAP + ScrollTrigger for choreography and pinning,
+       Lenis for smooth scroll. Loaded with `defer` so execution order is
+       preserved and the page never blocks on them. script.js checks for
+       each global and degrades gracefully to the first-party baseline
+       (IntersectionObserver reveals + native smooth-scroll) if any fail. -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
   <script src="script.js" defer></script>
 </body>
 </html>
