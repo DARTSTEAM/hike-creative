@@ -335,8 +335,11 @@
             scrub: 0.5, pin: true, anticipatePin: 1
           }
         });
-        tl.fromTo('.metrics__grid', { scale: 0.95, yPercent: 4 }, { scale: 1, yPercent: 0, ease: 'none' })
-          .fromTo('.metrics__aura', { scale: 0.9, opacity: 0.5 }, { scale: 1.3, opacity: 1, ease: 'none' }, 0);
+        // Grid scales (no filter on it → GPU-cheap). The aura only fades:
+        // scaling a blur(50px) layer forces a full blur re-raster every scrub
+        // frame — jank inside a pinned section — so it blooms via opacity.
+        tl.fromTo('.metrics__grid', { scale: 0.96, yPercent: 4 }, { scale: 1, yPercent: 0, ease: 'none' })
+          .fromTo('.metrics__aura', { opacity: 0.45 }, { opacity: 1, ease: 'none' }, 0);
       });
     })();
 
