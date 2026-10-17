@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js" data-nav="stage">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cordada — El hub de IA de Hike</title>
+  <meta name="description" content="Cordada es el hub de IA para marketing de Hike: seis productos atados a una misma cuerda. De lo que la gente dice de tu marca a la pieza publicada, revisada y medida. Una sola entrada." />
+  <meta name="theme-color" content="#121216" />
+  <link rel="canonical" href="https://dartsteam.github.io/hike-creative/v2/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cordada — El hub de IA de Hike" />
+  <meta property="og:description" content="Seis productos de IA para marketing, atados a una misma cuerda. Una campaña contada de principio a fin." />
+  <meta property="og:url" content="https://dartsteam.github.io/hike-creative/v2/" />
+  <meta property="og:image" content="https://dartsteam.github.io/hike-creative/v2/og.jpg" />
+  <meta property="og:locale" content="es_AR" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <script>
+    (function () {
+      var h = document.documentElement;
+      h.classList.remove('no-js'); h.classList.add('js');
+      try {
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) h.classList.add('animate-ready');
+      } catch (e) {}
+      window.setTimeout(function () { h.classList.add('reveal-fallback'); }, 2600);
+    })();
+  </script>
+
+  <link rel="preload" href="fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Íconos de los productos (trazo, estilo lucide). Un solo sprite, se usan con <use>. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-radar" viewBox="0 0 24 24"><path d="M19.07 4.93A10 10 0 0 0 6.99 3.34"/><path d="M4 6h.01"/><path d="M2.29 9.62A10 10 0 1 0 21.31 8.35"/><path d="M16.24 7.76A6 6 0 1 0 8.23 16.67"/><path d="M12 18h.01"/><path d="M17.99 11.66A6 6 0 0 1 15.77 16.67"/><circle cx="12" cy="12" r="2"/><path d="m13.41 10.59 5.66-5.66"/></symbol>
+      <symbol id="i-wand" viewBox="0 0 24 24"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></symbol>
+      <symbol id="i-stamp" viewBox="0 0 24 24"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13"/></symbol>
+      <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/><path d="m16 16-1.9-1.9"/></symbol>
+      <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></symbol>
+      <symbol id="i-gantt" viewBox="0 0 24 24"><path d="M10 6h8"/><path d="M12 16h6"/><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M8 11h7"/></symbol>
+      <symbol id="i-binoculars" viewBox="0 0 24 24"><path d="M10 10h4"/><path d="M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3"/><path d="M20 21a2 2 0 0 0 2-2v-3.851c0-1.39-2-2.962-2-4.829V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2z"/><path d="M22 16H2"/><path d="M4 21a2 2 0 0 1-2-2v-3.851c0-1.39 2-2.962 2-4.829V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2z"/><path d="M9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/></symbol>
+      <symbol id="i-key" viewBox="0 0 24 24"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/></symbol>
+      <symbol id="i-badge" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 4h3.5v16H7zM13.5 4H17v16h-3.5z" fill="currentColor" stroke="none"/></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="Cordada, inicio">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28">
+            <path d="M4 25.5 L12 16.5 L19 21 L28 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="16.5" r="2.4" fill="currentColor"/>
+            <circle cx="19" cy="21" r="2.4" fill="currentColor"/>
+            <circle cx="28" cy="7.5" r="3" fill="#AD87FF"/>
+          </svg>
+        </span>
+        <span class="brand__word">Cordada</span>
+        <span class="brand__by">by Hike</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#historia">La historia</a>
+        <a href="#cuerda">La cuerda</a>
+        <a href="#proximo">Lo que viene</a>
+        <a href="#empezar">Empezar</a>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="nav__enter" href="https://products.hikethecloud.com" rel="noopener">Entrar</a>
+        <a class="btn btn--pill btn--nav" href="#contacto">Pedir una demo</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav__mobile" id="mobileMenu" hidden>
+      <a href="#historia">La historia</a>
+      <a href="#cuerda">La cuerda</a>
+      <a href="#proximo">Lo que viene</a>
+      <a href="#empezar">Empezar</a>
+      <a href="https://products.hikethecloud.com" rel="noopener">Entrar a Cordada</a>
+      <a class="btn btn--pill nav__mobile-cta" href="#contacto">Pedir una demo</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" data-tone="stage" aria-labelledby="hero-title">
+      <div class="hero__aura" aria-hidden="true"></div>
+      <div class="wrap hero__grid">
+        <div class="hero__head">
+          <p class="eyebrow eyebrow--light reveal">Hike presenta su hub de IA para marketing</p>
+          <h1 class="hero__title reveal" id="hero-title">Cordada.</h1>
+        </div>
+        <div class="hero__copy">
+          <p class="hero__sub reveal">Seis productos de IA, atados a una misma cuerda. De lo que la gente dice de tu marca a la pieza publicada, revisada y medida. Un solo lugar, una sola entrada.</p>
+          <div class="hero__cta reveal">
+            <a class="btn btn--pill btn--violet btn--magnetic" href="#historia">Leer la historia <span class="arrow" aria-hidden="true">↓</span></a>
+            <a class="btn btn--text btn--text-light" href="#contacto">Pedir una demo <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <!-- La lista de reproducción: los seis recortes, uno detrás del otro -->
+        <div class="reel reveal" id="reel" aria-label="Cómo funciona cada producto">
+          <div class="reel__frame">
+            <video class="reel__video" data-i="0" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <video class="reel__video" data-i="1" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <video class="reel__video" data-i="2" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <video class="reel__video" data-i="3" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <video class="reel__video" data-i="4" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <video class="reel__video" data-i="5" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+            <button class="reel__big" id="reelBig" type="button" hidden>
+              <span class="visually-hidden">Reproducir</span>
+              <span class="reel__big-disc" aria-hidden="true"><svg width="22" height="22"><use href="#i-play"/></svg></span>
+            </button>
+          </div>
+
+          <div class="reel__bar">
+            <button class="reel__toggle" id="reelToggle" type="button" aria-label="Pausar" aria-pressed="true">
+              <svg class="reel__ic reel__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
+              <svg class="reel__ic reel__ic--play" width="14" height="14"><use href="#i-play"/></svg>
+            </button>
+            <ol class="reel__chapters" id="reelChapters">
+              <li><button type="button" data-i="0" aria-label="Social Listener"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Social Listener</span></button></li>
+              <li><button type="button" data-i="1" aria-label="Re·Adapt"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Re·Adapt</span></button></li>
+              <li><button type="button" data-i="2" aria-label="Imprint"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Imprint</span></button></li>
+              <li><button type="button" data-i="3" aria-label="Creative Check"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Creative Check</span></button></li>
+              <li><button type="button" data-i="4" aria-label="Implementador"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Implementador</span></button></li>
+              <li><button type="button" data-i="5" aria-label="Lanchat"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Lanchat</span></button></li>
+            </ol>
+          </div>
+
+          <div class="reel__caption">
+            <p class="reel__text"><span class="reel__count" id="reelCount">01 / 06</span><span id="reelLine">Qué se dice de tus marcas y de la competencia en redes, y qué comentarios piden respuesta.</span></p>
+            <a class="reel__go" id="reelGo" href="#tramo-1">Ir al tramo <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#prologo" aria-label="Seguir leyendo"><span></span></a>
+    </section>
+
+    <!-- ============ PRÓLOGO ============ -->
+    <section class="prologue" id="prologo" data-tone="paper" aria-labelledby="prologue-title">
+      <div class="wrap prologue__grid">
+        <div class="prologue__lead">
+          <p class="eyebrow reveal">Prólogo</p>
+          <h2 class="prologue__title reveal" id="prologue-title">Nadie sube solo.</h2>
+          <aside class="definition reveal" aria-label="Definición de cordada">
+            <p class="definition__word">cordada <span>f.</span></p>
+            <p class="definition__text">En montaña, el grupo de personas unidas por una misma cuerda. Si una resbala, las demás la sostienen.</p>
+          </aside>
+        </div>
+        <div class="prologue__body">
+          <p class="reveal">Hoy una campaña pasa por seis herramientas, seis logins y seis versiones del brief. En cada paso se pierde un poco: de la intención original, del tono de la marca, del tiempo del equipo.</p>
+          <p class="reveal">Cordada ata esos pasos. Cada producto hace una cosa bien, y todos comparten la misma cuerda: tu marca, tus clientes y tu entrada. Lo que sigue es una campaña contada de principio a fin, tramo por tramo. Lo que ves en cada video es el producto real.</p>
+          <p class="prologue__sign reveal"><span class="rope-dash" aria-hidden="true"></span>Seis tramos. Una cuerda.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LA HISTORIA ============ -->
+    <section class="story" id="historia" data-tone="stage" aria-labelledby="story-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow eyebrow--light" data-index="01">La historia</p>
+          <h2 class="section-title" id="story-title">Una campaña, de principio a fin.</h2>
+          <p class="section-lede">Seis tramos. En cada uno, un producto que ya está funcionando para marcas de la región.</p>
+        </header>
+
+        <!-- Índice compacto, para el celular: en escritorio lo reemplaza el riel -->
+        <nav class="index" aria-label="Tramos">
+          <a href="#tramo-1"><b>01</b> Escuchar</a>
+          <a href="#tramo-2"><b>02</b> Crear</a>
+          <a href="#tramo-3"><b>03</b> Multiplicar</a>
+          <a href="#tramo-4"><b>04</b> Revisar</a>
+          <a href="#tramo-5"><b>05</b> Publicar</a>
+          <a href="#tramo-6"><b>06</b> Entender</a>
+        </nav>
+      </div>
+
+      <div class="wrap story__layout">
+        <!-- El riel: la cuerda que se va tensando a medida que se baja -->
+        <aside class="rail" aria-label="Progreso de la historia">
+          <div class="rail__rope" aria-hidden="true"><span class="rail__rope-fill"></span></div>
+          <ol class="rail__list">
+            <li><a href="#tramo-1" data-chapter="1"><span class="rail__dot" aria-hidden="true"></span><span class="rail__num">01</span><span class="rail__verb">Escuchar</span></a></li>
+            <li><a href="#tramo-2" data-chapter="2"><span class="rail__dot" aria-hidden="true"></span><span class="rail__num">02</span><span class="rail__verb">Crear</span></a></li>
+            <li><a href="#tramo-3" data-chapter="3"><span class="rail__dot" aria-hidden="true"></span><span class="rail__num">03</span><span class="rail__verb">Multiplicar</span></a></li>
+            <li><a href="#tramo-4" data-chapter="4"><span class="rail__dot" aria-hidden="true"></span><span class="rail__num">04</span><span class="rail__verb">Revisar</span></a></li>
+            <li><a href="#tramo-5" data-chapter="5"><span class="rail__dot" aria-hidden="true"></span><span class="rail__num">05</span><span class="rail__verb">Publicar</span></a></li>
+            <li><a href="#tramo-6" data-chapter="6"><span class="rail__dot" aria-hidden="true"></span><span class="rail__num">06</span><span class="rail__verb">Entender</span></a></li>
+          </ol>
+        </aside>
+
+        <div class="chapters">
+
+          <!-- 01 · Escuchar -->
+          <article class="chapter" id="tramo-1" data-chapter="1">
+            <div class="chapter__media reveal">
+              <figure class="demo" data-demo="social-listener">
+                <video class="demo__video" muted playsinline loop preload="none" poster="media/social-listener.jpg" data-src="media/social-listener.mp4" aria-label="Demo de Social Listener"></video>
+                <div class="demo__controls">
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
+                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
+                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
+                  </button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver en pantalla completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                </div>
+                <figcaption class="demo__cap">Social Listener · 20 s</figcaption>
+              </figure>
+            </div>
+            <div class="chapter__text">
+              <p class="chapter__num reveal">Tramo 01</p>
+              <h3 class="chapter__verb reveal">Escuchar</h3>
+              <p class="chapter__line reveal">Antes de hablar, escuchá.</p>
+              <div class="product reveal">
+                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-radar"/></svg></span>
+                <span class="product__name">Social Listener</span>
+              </div>
+              <p class="chapter__lede reveal">Qué se dice de tus marcas y de la competencia en redes, y qué comentarios piden respuesta.</p>
+              <ul class="chapter__list reveal">
+                <li>Engagement, sentimiento y tendencias por marca: de las tuyas y de la competencia.</li>
+                <li>Una bandeja con los comentarios que piden respuesta, con la que sugiere la IA en el tono de tu marca.</li>
+                <li>Escaneos a pedido de una cuenta, un post o un tema en Instagram, TikTok, X, YouTube o Facebook.</li>
+              </ul>
+              <p class="chapter__who reveal"><span>Para quién</span>Marketing y comunicación de la marca, con el equipo de ABN que la acompaña.</p>
+              <div class="chapter__cta reveal">
+                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Escuchar (Social Listener)">Pedir una demo</a>
+                <button class="btn btn--text btn--text-light demo__open" type="button">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02 · Crear -->
+          <article class="chapter chapter--rev" id="tramo-2" data-chapter="2">
+            <div class="chapter__media reveal">
+              <figure class="demo" data-demo="readapt">
+                <video class="demo__video" muted playsinline loop preload="none" poster="media/readapt.jpg" data-src="media/readapt.mp4" aria-label="Demo de Re·Adapt"></video>
+                <div class="demo__controls">
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
+                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
+                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
+                  </button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver en pantalla completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                </div>
+                <figcaption class="demo__cap">Re·Adapt · 35 s</figcaption>
+              </figure>
+            </div>
+            <div class="chapter__text">
+              <p class="chapter__num reveal">Tramo 02</p>
+              <h3 class="chapter__verb reveal">Crear</h3>
+              <p class="chapter__line reveal">La idea, en minutos y en todos los formatos.</p>
+              <div class="product reveal">
+                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-wand"/></svg></span>
+                <span class="product__name">Re·Adapt</span>
+              </div>
+              <p class="chapter__lede reveal">Generá piezas con IA, retocalas por partes y llevalas a todos los formatos.</p>
+              <ul class="chapter__list reveal">
+                <li>Un chat que genera imágenes a partir de un pedido o de referencias, y edita la que tiene abierta.</li>
+                <li>Un canvas que encadena referencias, instrucción, generación y adaptación a cada formato, en lotes de hasta 20 imágenes.</li>
+                <li>Retoque por partes: marcás un elemento, lo cambia y guarda cada versión.</li>
+              </ul>
+              <p class="chapter__who reveal"><span>Para quién</span>Equipos creativos. Genera imágenes, no video.</p>
+              <div class="chapter__cta reveal">
+                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Crear (Re·Adapt)">Pedir una demo</a>
+                <button class="btn btn--text btn--text-light demo__open" type="button">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 · Multiplicar -->
+          <article class="chapter" id="tramo-3" data-chapter="3">
+            <div class="chapter__media reveal">
+              <figure class="demo" data-demo="imprint">
+                <video class="demo__video" muted playsinline loop preload="none" poster="media/imprint.jpg" data-src="media/imprint.mp4" aria-label="Demo de Imprint"></video>
+                <div class="demo__controls">
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
+                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
+                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
+                  </button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver en pantalla completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                </div>
+                <figcaption class="demo__cap">Imprint · 32 s</figcaption>
+              </figure>
+            </div>
+            <div class="chapter__text">
+              <p class="chapter__num reveal">Tramo 03</p>
+              <h3 class="chapter__verb reveal">Multiplicar</h3>
+              <p class="chapter__line reveal">Una pieza. Cientos de medidas. Una sola identidad.</p>
+              <div class="product reveal">
+                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-stamp"/></svg></span>
+                <span class="product__name">Imprint</span>
+              </div>
+              <p class="chapter__lede reveal">Armá creativos en todas las medidas con la identidad de la marca, y repetilos por cientos.</p>
+              <ul class="chapter__list reveal">
+                <li>De una imagen y un texto, arma la pieza y la lleva a cada medida y a cada red donde se publica.</li>
+                <li>La primera pieza define la identidad: los colores y las tipografías de las que siguen se auditan contra ella.</li>
+                <li>Un catálogo repite un creativo con otros datos: cientos de piezas de una vez, con tu biblioteca y tus tipografías.</li>
+              </ul>
+              <p class="chapter__who reveal"><span>Para quién</span>Equipos creativos y de paid media.</p>
+              <div class="chapter__cta reveal">
+                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Multiplicar (Imprint)">Pedir una demo</a>
+                <button class="btn btn--text btn--text-light demo__open" type="button">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04 · Revisar -->
+          <article class="chapter chapter--rev" id="tramo-4" data-chapter="4">
+            <div class="chapter__media reveal">
+              <figure class="demo" data-demo="creative-check">
+                <video class="demo__video" muted playsinline loop preload="none" poster="media/creative-check.jpg" data-src="media/creative-check.mp4" aria-label="Demo de Creative Check"></video>
+                <div class="demo__controls">
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
+                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
+                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
+                  </button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver en pantalla completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                </div>
+                <figcaption class="demo__cap">Creative Check · 29 s</figcaption>
+              </figure>
+            </div>
+            <div class="chapter__text">
+              <p class="chapter__num reveal">Tramo 04</p>
+              <h3 class="chapter__verb reveal">Revisar</h3>
+              <p class="chapter__line reveal">Antes de pagar por mostrarla, sabé si funciona.</p>
+              <div class="product reveal">
+                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-scan"/></svg></span>
+                <span class="product__name">Creative Check</span>
+              </div>
+              <p class="chapter__lede reveal">Revisá una pieza antes de publicarla y escribile los copies.</p>
+              <ul class="chapter__list reveal">
+                <li>Puntúa una imagen o un video de 0 a 100 con el framework ABCD de Google: sale, sale con ajustes o se rehace.</li>
+                <li>Marca las tres mejoras con más impacto y, si es una imagen, arma la versión mejorada, también en otro formato.</li>
+                <li>Escribe los copies de Meta, Google, TikTok y Uber con las reglas de tu marca, y los mide.</li>
+              </ul>
+              <p class="chapter__who reveal"><span>Para quién</span>Paid media y marketing de la marca. Cada cliente tiene su tope de gasto por día.</p>
+              <div class="chapter__cta reveal">
+                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Revisar (Creative Check)">Pedir una demo</a>
+                <button class="btn btn--text btn--text-light demo__open" type="button">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05 · Publicar -->
+          <article class="chapter" id="tramo-5" data-chapter="5">
+            <div class="chapter__media reveal">
+              <figure class="demo" data-demo="implementador">
+                <video class="demo__video" muted playsinline loop preload="none" poster="media/implementador.jpg" data-src="media/implementador.mp4" aria-label="Demo de Implementador"></video>
+                <div class="demo__controls">
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
+                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
+                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
+                  </button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver en pantalla completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                </div>
+                <figcaption class="demo__cap">Implementador · 30 s</figcaption>
+              </figure>
+            </div>
+            <div class="chapter__text">
+              <p class="chapter__num reveal">Tramo 05</p>
+              <h3 class="chapter__verb reveal">Publicar</h3>
+              <p class="chapter__line reveal">De la carpeta a Meta, en lote.</p>
+              <div class="product reveal">
+                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-rocket"/></svg></span>
+                <span class="product__name">Implementador</span>
+                <span class="chip">Lo opera el equipo de ABN</span>
+              </div>
+              <p class="chapter__lede reveal">Subí anuncios a Meta en lote a partir de plantillas, sin armarlos uno por uno.</p>
+              <ul class="chapter__list reveal">
+                <li>Plantillas de anuncio de imagen, video o carrusel para cada cuenta de Meta.</li>
+                <li>Trae las piezas desde Google Drive, Basecamp o un link, y las deja listas para usar.</li>
+                <li>Sube las piezas, crea el creativo y el anuncio, país por país, y muestra el estado mientras corre.</li>
+              </ul>
+              <p class="chapter__who reveal"><span>Para quién</span>El equipo de implementación de paid media de ABN, sobre tus cuentas.</p>
+              <div class="chapter__cta reveal">
+                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Publicar (Implementador)">Pedir una demo</a>
+                <button class="btn btn--text btn--text-light demo__open" type="button">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06 · Entender -->
+          <article class="chapter chapter--rev" id="tramo-6" data-chapter="6">
+            <div class="chapter__media reveal">
+              <figure class="demo" data-demo="lanchat">
+                <video class="demo__video" muted playsinline loop preload="none" poster="media/lanchat.jpg" data-src="media/lanchat.mp4" aria-label="Demo de Lanchat"></video>
+                <div class="demo__controls">
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
+                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
+                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
+                  </button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver en pantalla completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                </div>
+                <figcaption class="demo__cap">Lanchat · 45 s</figcaption>
+              </figure>
+            </div>
+            <div class="chapter__text">
+              <p class="chapter__num reveal">Tramo 06</p>
+              <h3 class="chapter__verb reveal">Entender</h3>
+              <p class="chapter__line reveal">Preguntale a tus datos como le preguntarías a alguien del equipo.</p>
+              <div class="product reveal">
+                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-chat"/></svg></span>
+                <span class="product__name">Lanchat</span>
+                <span class="chip">Lo opera el equipo de ABN</span>
+              </div>
+              <p class="chapter__lede reveal">El chat de ABN con los datos de cada cliente.</p>
+              <ul class="chapter__list reveal">
+                <li>Responde preguntas sobre tus métricas en lenguaje natural.</li>
+                <li>Arma y publica dashboards, reportes y el cierre del mes con tu marca.</li>
+                <li>Lee Sheets, Detrics y el conocimiento cargado de tu cuenta. También contesta en Slack.</li>
+              </ul>
+              <p class="chapter__who reveal"><span>Para quién</span>El equipo de ABN que lleva tu cuenta, con los datos de tu negocio.</p>
+              <div class="chapter__cta reveal">
+                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Entender (Lanchat)">Pedir una demo</a>
+                <button class="btn btn--text btn--text-light demo__open" type="button">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Epílogo -->
+      <div class="wrap">
+        <p class="epilogue reveal reveal--wipe"><span class="epilogue__knot" aria-hidden="true"></span>Y la cuerda vuelve al principio: lo que se aprendió en esta campaña ya está en la siguiente.</p>
+      </div>
+    </section>
+
+    <!-- ============ LA CUERDA ============ -->
+    <section class="rope" id="cuerda" data-tone="paper" aria-labelledby="rope-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow" data-index="02">La cuerda</p>
+          <h2 class="section-title" id="rope-title">Lo que los une.</h2>
+          <p class="section-lede">Cordada no es una lista de herramientas. Es lo que comparten.</p>
+        </header>
+
+        <ul class="pillars">
+          <li class="pillar reveal">
+            <span class="pillar__icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-key"/></svg></span>
+            <h3>Una sola entrada</h3>
+            <p>Entrás una vez, con tu cuenta de Google o Microsoft, y pasás de un producto a otro sin volver a loguearte.</p>
+          </li>
+          <li class="pillar reveal">
+            <span class="pillar__icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-badge"/></svg></span>
+            <h3>Tu marca, cargada una vez</h3>
+            <p>Clientes, submarcas, dominios y personas se cargan en un lugar y todos los productos los respetan. Dar un acceso o cortarlo se hace una vez.</p>
+          </li>
+          <li class="pillar reveal">
+            <span class="pillar__icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-users"/></svg></span>
+            <h3>Un equipo en la cordada</h3>
+            <p>No es solo software. El equipo de ABN opera, acompaña y mejora cada producto con lo que pasa en tus campañas.</p>
+          </li>
+          <li class="pillar reveal">
+            <span class="pillar__icon" aria-hidden="true"><svg width="22" height="22"><use href="#i-cloud"/></svg></span>
+            <h3>Sobre Google Cloud</h3>
+            <p>Corre en Google Cloud y usa Gemini en Vertex AI. Con topes de gasto y créditos por cliente, la IA nunca es una sorpresa en la factura.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ HECHOS ============ -->
+    <section class="facts" data-tone="stage" aria-label="En números">
+      <div class="facts__aura" aria-hidden="true"></div>
+      <div class="wrap">
+        <ul class="facts__grid">
+          <li class="fact reveal"><span class="fact__num">6</span><span class="fact__label">productos, una sola entrada</span></li>
+          <li class="fact reveal"><span class="fact__num">0–100</span><span class="fact__label">el score de cada pieza antes de publicarla</span></li>
+          <li class="fact reveal"><span class="fact__num">4</span><span class="fact__label">plataformas de copies: Meta, Google, TikTok y Uber</span></li>
+          <li class="fact reveal"><span class="fact__num">5</span><span class="fact__label">redes escuchadas: Instagram, TikTok, X, YouTube y Facebook</span></li>
+          <li class="fact reveal"><span class="fact__num">×100</span><span class="fact__label">piezas de una vez, desde un catálogo</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ LO QUE VIENE ============ -->
+    <section class="next" id="proximo" data-tone="paper" aria-labelledby="next-title">
+      <div class="wrap">
+        <header class="section-head reveal">
+          <p class="eyebrow" data-index="03">Lo que viene</p>
+          <h2 class="section-title" id="next-title">El próximo tramo.</h2>
+          <p class="section-lede">La cordada crece con lo que piden las campañas. Esto ya está en construcción.</p>
+        </header>
+        <ul class="upcoming">
+          <li class="upcoming__card reveal">
+            <div class="upcoming__head">
+              <span class="product__icon product__icon--paper" aria-hidden="true"><svg width="20" height="20"><use href="#i-gantt"/></svg></span>
+              <h3>Planes de medios</h3>
+              <span class="chip chip--paper">En camino</span>
+            </div>
+            <p>Armá el plan de medios de cada mes o de cada evento, pasalo por la aprobación del cliente y seguilo contra la meta, con lo que van dando las campañas desde BigQuery. Cada aprobación queda como una versión.</p>
+          </li>
+          <li class="upcoming__card reveal">
+            <div class="upcoming__head">
+              <span class="product__icon product__icon--paper" aria-hidden="true"><svg width="20" height="20"><use href="#i-binoculars"/></svg></span>
+              <h3>Competencia</h3>
+              <span class="chip chip--paper">Beta, en Creative Check</span>
+            </div>
+            <p>Lo que pautan tus competidores en Meta y en búsqueda de Google, leído de las bibliotecas públicas de anuncios y clasificado por ángulo, oferta y huecos que nadie está ocupando.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ EMPEZAR ============ -->
+    <section class="start" id="empezar" data-tone="stage" aria-labelledby="start-title">
+      <div class="start__aura" aria-hidden="true"></div>
+      <div class="wrap">
+        <header class="section-head section-head--center reveal">
+          <p class="eyebrow eyebrow--light" data-index="04">Cómo empezar</p>
+          <h2 class="section-title" id="start-title">Tres pasos y estás en la cordada.</h2>
+        </header>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <h3>Una demo de 30 minutos</h3>
+            <p>Te mostramos los seis tramos con una pieza tuya, no con una de ejemplo.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">02</span>
+            <h3>Cargamos tu marca</h3>
+            <p>Clientes, dominios y personas, una sola vez. Elegís qué productos ve cada equipo.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">03</span>
+            <h3>Entrás</h3>
+            <p>Desde el día uno, con tu cuenta de Google o Microsoft. Sin instalar nada.</p>
+          </li>
+        </ol>
+        <div class="start__cta reveal">
+          <a class="btn btn--pill btn--violet btn--lg btn--magnetic" href="#contacto">Pedir una demo <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="contact" id="contacto" data-tone="paper" aria-labelledby="contact-title">
+      <div class="wrap contact__grid">
+        <div class="contact__intro reveal">
+          <p class="eyebrow" data-index="05">Contacto</p>
+          <h2 class="section-title" id="contact-title">Hablemos de tu próxima campaña.</h2>
+          <p class="contact__lede">Contanos qué querés resolver primero. Te responde una persona del equipo, no un bot.</p>
+          <ul class="contact__meta">
+            <li>
+              <span class="contact__meta-k">Email</span>
+              <a class="contact__meta-v" href="mailto:juanpablo@hikethecloud.com">juanpablo@hikethecloud.com</a>
+            </li>
+            <li>
+              <span class="contact__meta-k">Web</span>
+              <a class="contact__meta-v" href="https://hikethecloud.com" rel="noopener">hikethecloud.com</a>
+            </li>
+            <li>
+              <span class="contact__meta-k">Ya sos cliente</span>
+              <a class="contact__meta-v" href="https://products.hikethecloud.com" rel="noopener">Entrar a Cordada <span class="arrow" aria-hidden="true">↗</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <form class="form reveal" id="demoForm" novalidate>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="nombre">¿Cómo te llamás?</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Nombre y apellido" required />
+            </div>
+            <div class="form__field">
+              <label for="empresa">¿De qué marca o empresa?</label>
+              <input id="empresa" name="empresa" type="text" autocomplete="organization" placeholder="Empresa" required />
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="email">Tu correo</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="vos@empresa.com" required />
+          </div>
+          <div class="form__field">
+            <label for="interes">¿Qué querés resolver primero?</label>
+            <div class="select">
+              <select id="interes" name="interes">
+                <option>Toda la cordada</option>
+                <option>Escuchar (Social Listener)</option>
+                <option>Crear (Re·Adapt)</option>
+                <option>Multiplicar (Imprint)</option>
+                <option>Revisar (Creative Check)</option>
+                <option>Publicar (Implementador)</option>
+                <option>Entender (Lanchat)</option>
+                <option>Planes de medios</option>
+              </select>
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="mensaje">Contexto <span class="opt">(opcional)</span></label>
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuántas marcas, qué canales, qué los frena hoy…"></textarea>
+          </div>
+          <button class="btn btn--pill btn--primary btn--block" type="submit">Pedir la demo</button>
+          <p class="form__note" role="status" id="formNote">Se abre tu correo con el mensaje listo para mandar.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" data-tone="stage">
+    <div class="wrap footer__grid">
+      <div class="footer__brand">
+        <a class="brand brand--footer" href="#top" aria-label="Cordada, inicio">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="24" height="24">
+              <path d="M4 25.5 L12 16.5 L19 21 L28 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="16.5" r="2.4" fill="currentColor"/>
+              <circle cx="19" cy="21" r="2.4" fill="currentColor"/>
+              <circle cx="28" cy="7.5" r="3" fill="#AD87FF"/>
+            </svg>
+          </span>
+          <span class="brand__word">Cordada</span>
+          <span class="brand__by">by Hike</span>
+        </a>
+        <p class="footer__tag">Hike es la unidad de automatización y estrategia de ABN Group.</p>
+      </div>
+
+      <nav class="footer__col" aria-label="Cordada">
+        <h4>Cordada</h4>
+        <a href="#historia">La historia</a>
+        <a href="#cuerda">La cuerda</a>
+        <a href="#proximo">Lo que viene</a>
+        <a href="#empezar">Empezar</a>
+      </nav>
+      <nav class="footer__col" aria-label="Hike">
+        <h4>Hike</h4>
+        <a href="https://hikethecloud.com" rel="noopener">hikethecloud.com</a>
+        <a href="https://products.hikethecloud.com" rel="noopener">Entrar a Cordada</a>
+        <a href="../">Hike Creative (versión anterior)</a>
+      </nav>
+      <nav class="footer__col" aria-label="Contacto">
+        <h4>Contacto</h4>
+        <a href="mailto:juanpablo@hikethecloud.com">juanpablo@hikethecloud.com</a>
+        <a href="#contacto">Pedir una demo</a>
+      </nav>
+    </div>
+    <div class="wrap footer__bottom">
+      <p>© 2026 Hike by ABN</p>
+      <p class="footer__made">Buenos Aires, AR</p>
+    </div>
+  </footer>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
