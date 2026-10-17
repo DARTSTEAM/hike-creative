@@ -139,11 +139,23 @@
     function paint() {
       var v = videos[current];
       var f = fills[current];
-      if (v && f && v.duration) f.style.transform = 'scaleX(' + (v.currentTime / v.duration) + ')';
+      if (v && f && v.duration) {
+        var ratio = v.currentTime / v.duration;
+        f.style.transform = 'scaleX(' + ratio + ')';
+        if (ratio > 0.5) load((current + 1) % TOTAL);
+      }
       if (active()) raf = window.requestAnimationFrame(paint);
     }
+    var fallidos = 0;
+    function saltar() {
+      fallidos += 1;
+      if (fallidos >= TOTAL) { setPlaying(false); return; }
+      goTo((current + 1) % TOTAL);
+    }
     function sync() {
-      load(current); load((current + 1) % TOTAL);
+      load(current);
+      var actual = videos[current];
+      if (actual && actual.error) { window.setTimeout(function () { if (videos[current] === actual && actual.error) saltar(); }, 600); }
       videos.forEach(function (v, i) {
         v.classList.toggle('is-current', i === current);
         v.loop = chosen;
@@ -187,6 +199,9 @@
 
     videos.forEach(function (v, i) {
       v.addEventListener('ended', function () { if (i === current && !chosen) goTo((current + 1) % TOTAL); });
+      // Si el archivo no llega, el reel sigue con el próximo en vez de quedarse en negro.
+      v.addEventListener('error', function () { if (i === current) window.setTimeout(function () { if (i === current) saltar(); }, 600); });
+      v.addEventListener('playing', function () { fallidos = 0; });
     });
     buttons.forEach(function (b) { b.addEventListener('click', function () { choose(Number(b.getAttribute('data-i'))); }); });
     knots.forEach(function (k) { k.addEventListener('click', function () { choose(Number(k.getAttribute('data-i'))); }); });
@@ -236,6 +251,8 @@
       function load() {
         if (loaded) return;
         loaded = true;
+        var poster = video.getAttribute('data-poster');
+        if (poster) video.setAttribute('poster', poster);
         video.setAttribute('src', video.getAttribute('data-src'));
         video.load();
       }
