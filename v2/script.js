@@ -1,11 +1,11 @@
 /* =========================================================
-   CORDADA — script.js
+   ANDES — script.js
    1) Base (siempre): nav, menú, reveals, el reel del hero con la
-      cuerda bajo el nombre, los demos de cada tramo, el lightbox,
+      cordillera sobre el reel, los demos de cada tramo, el lightbox,
       el riel, las preguntas, la CTA fija, el formulario.
    2) Capa cinemática (si GSAP y Lenis llegan): scroll suave, título
       enmascarado, la escena del prólogo que se ata al scrollear,
-      la cuerda del riel, parallax, contadores, botones magnéticos.
+      el riel, parallax, contadores, botones magnéticos.
    Si una librería no carga, la base sigue funcionando sola.
    ========================================================= */
 (function () {
@@ -92,7 +92,7 @@
   }
 
   /* =========================================================
-     REEL + la cuerda: cada nudo es un producto y el tramo violeta avanza con el video
+     REEL + la cordillera: cada cumbre es un producto y el tramo violeta avanza con el video
      ========================================================= */
   var reel = (function () {
     var root = document.getElementById('reel');
@@ -362,85 +362,93 @@
   })();
 
   /* =========================================================
-     PIEZAS — el arco. Las tarjetas viven sobre la cara interna de un
-     cilindro: las de los costados quedan más cerca y giradas hacia el
-     centro, como en Polaris. Gira solo, se frena con el mouse y se arrastra.
+     PIEZAS — el cilindro. Geometría medida de Polaris en 1440 px:
+     perspectiva 900, radio 1008, tarjetas de 310 × 480 cada 22,5°.
+     La cámara está adentro: el anillo gira y las de los costados,
+     más cerca, se ven más altas. Se frena con el mouse y se arrastra.
      ========================================================= */
   (function arc() {
     var root = document.getElementById('arc');
-    var stage = document.getElementById('arcStage');
-    if (!root || !stage) return;
-    var cards = Array.prototype.slice.call(stage.querySelectorAll('.arc__card'));
+    var ring = document.getElementById('arcRing');
+    if (!root || !ring) return;
+    var cards = Array.prototype.slice.call(ring.querySelectorAll('.arc__card'));
     var n = cards.length;
     if (!n) return;
+    var STEP = 360 / n;
     root.classList.add('is-3d');
 
-    var pos = 0;              // índice (fraccional) de la tarjeta que está al frente
-    var speed = reduce ? 0 : 0.11;   // tarjetas por segundo
+    var rot = 0;                         // grados
+    var speed = reduce ? 0 : 4.2;        // grados por segundo, como Polaris
     var hovering = false, dragging = false, visible = true;
-    var startX = 0, startPos = 0, lastT = 0, velocity = 0;
-    var geom = { R: 900, step: 0.2, card: 220 };
+    var startX = 0, startRot = 0, lastX = 0, lastMoveT = 0, velocity = 0, lastT = 0;
+    var pxPerDeg = 10;
 
     function measure() {
       var w = root.clientWidth;
-      var card = cards[0].offsetWidth || 220;
-      var R = Math.max(w * 0.75, card * 3.2);
-      geom = { R: R, card: card, step: (card * 1.12) / R };
+      // En el celular la escala no baja de 0,62 y la cámara se aleja un poco,
+      // si no la tarjeta del centro queda de 70 px.
+      var k = Math.max(w / 1440, 0.62);
+      var R = 1008 * k;
+      var P = (w < 720 ? 1.15 * R : 900 * k);
+      var cw = 310 * k, ch = 480 * k;
+      root.style.setProperty('--arc-p', P.toFixed(0) + 'px');
+      root.style.setProperty('--card-w', cw.toFixed(0) + 'px');
+      root.style.setProperty('--card-h', ch.toFixed(0) + 'px');
+      root.style.setProperty('--arc-h', Math.round(ch * 0.92) + 'px');
+      cards.forEach(function (c, i) {
+        c.style.transform = 'rotateY(' + (i * STEP) + 'deg) translateZ(' + (-R).toFixed(1) + 'px)';
+      });
+      // Un grado de giro, en píxeles de pantalla sobre la tarjeta del frente
+      pxPerDeg = (R * Math.PI / 180) * (P / (P + R));
     }
-    function wrap(o) { o = ((o % n) + n) % n; return o > n / 2 ? o - n : o; }
-    function layout() {
+    function paint() {
+      ring.style.transform = 'translateZ(0) rotateY(' + rot.toFixed(3) + 'deg)';
       for (var i = 0; i < n; i++) {
-        var o = wrap(i - pos);
-        var a = o * geom.step;
+        var a = ((i * STEP + rot) % 360 + 540) % 360 - 180;   // ángulo respecto de la cámara
         var abs = Math.abs(a);
-        var x = Math.sin(a) * geom.R;
-        var z = (1 - Math.cos(a)) * geom.R * 0.55;
-        var y = -(1 - Math.cos(a)) * geom.R * 0.12;
-        var deg = -a * 180 / Math.PI * 0.85;
-        var fade = abs > 1.05 ? 0 : abs > 0.8 ? 1 - (abs - 0.8) / 0.25 : 1;
+        // Más allá de 80° la tarjeta queda detrás de la cámara o enorme.
+        var o = abs > 80 ? 0 : abs > 66 ? (80 - abs) / 14 : 1;
         var c = cards[i];
-        c.style.transform = 'translate(-50%, -50%) translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,' + z.toFixed(1) + 'px) rotateY(' + deg.toFixed(2) + 'deg)';
-        c.style.opacity = fade.toFixed(3);
-        c.style.zIndex = String(Math.round(abs * 100));
-        c.style.visibility = fade === 0 ? 'hidden' : 'visible';
+        if (c._o !== o) { c.style.opacity = String(o); c.style.visibility = o === 0 ? 'hidden' : 'visible'; c._o = o; }
       }
     }
     function frame(t) {
       var dt = lastT ? Math.min(0.05, (t - lastT) / 1000) : 0;
       lastT = t;
       if (!dragging) {
-        if (Math.abs(velocity) > 0.001) { pos += velocity * dt; velocity *= Math.pow(0.04, dt); }
-        else if (!hovering) pos += speed * dt;
+        if (Math.abs(velocity) > 0.5) { rot += velocity * dt; velocity *= Math.pow(0.05, dt); }
+        else if (!hovering) rot -= speed * dt;
       }
-      layout();
+      paint();
       if (visible) window.requestAnimationFrame(frame); else lastT = 0;
     }
 
     root.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hovering = true; });
     root.addEventListener('pointerleave', function () { hovering = false; });
-    stage.addEventListener('pointerdown', function (e) {
-      dragging = true; velocity = 0; startX = e.clientX; startPos = pos;
+    root.addEventListener('pointerdown', function (e) {
+      dragging = true; velocity = 0; startX = lastX = e.clientX; startRot = rot; lastMoveT = performance.now();
       root.classList.add('is-dragging');
-      try { stage.setPointerCapture(e.pointerId); } catch (err) {}
+      try { root.setPointerCapture(e.pointerId); } catch (err) {}
     });
-    stage.addEventListener('pointermove', function (e) {
+    root.addEventListener('pointermove', function (e) {
       if (!dragging) return;
-      var prev = pos;
-      pos = startPos - (e.clientX - startX) / (geom.card * 1.12);
-      velocity = (pos - prev) * 60;
+      var now = performance.now();
+      rot = startRot + (e.clientX - startX) / pxPerDeg;
+      var dtm = Math.max(1, now - lastMoveT);
+      velocity = ((e.clientX - lastX) / pxPerDeg) / (dtm / 1000);
+      lastX = e.clientX; lastMoveT = now;
     });
     function release() { if (!dragging) return; dragging = false; root.classList.remove('is-dragging'); }
-    stage.addEventListener('pointerup', release);
-    stage.addEventListener('pointercancel', release);
-    // Con teclado: el carrusel se mueve con las flechas cuando tiene el foco.
+    root.addEventListener('pointerup', release);
+    root.addEventListener('pointercancel', release);
     root.setAttribute('tabindex', '0');
     root.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight') { velocity = 0; pos += 1; layout(); e.preventDefault(); }
-      if (e.key === 'ArrowLeft') { velocity = 0; pos -= 1; layout(); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { velocity = 0; rot -= STEP; paint(); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { velocity = 0; rot += STEP; paint(); e.preventDefault(); }
     });
 
-    measure(); layout();
-    window.addEventListener('resize', function () { measure(); layout(); });
+    measure(); paint();
+    window.addEventListener('resize', function () { measure(); paint(); });
     if (hasIO) {
       new IntersectionObserver(function (entries) {
         var was = visible;
@@ -547,9 +555,9 @@
         first.focus();
         return;
       }
-      var subject = 'Demo de Cordada · ' + empresa;
+      var subject = 'Demo de Andes · ' + empresa;
       var body = 'Hola, soy ' + nombre + ' de ' + empresa + '.\n\n' +
-        'Quiero una demo de Cordada. Lo que querría resolver primero: ' + que + '.\n' +
+        'Quiero una demo de Andes. Lo que querría resolver primero: ' + que + '.\n' +
         (mensaje ? '\nContexto:\n' + mensaje + '\n' : '') +
         '\nMe escribís a ' + email + '.\n';
       window.location.href = 'mailto:juanpablo@hikethecloud.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
@@ -645,9 +653,6 @@
     })();
 
     (function parallax() {
-      gsap.utils.toArray('.chapter__media').forEach(function (m) {
-        gsap.fromTo(m, { yPercent: 5 }, { yPercent: -5, ease: 'none', scrollTrigger: { trigger: m, start: 'top bottom', end: 'bottom top', scrub: 0.6 } });
-      });
       var center = document.querySelector('.hero__center');
       if (center) gsap.to(center, { yPercent: 18, opacity: 0.2, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.6 } });
       var big = document.querySelector('.footer__big');
