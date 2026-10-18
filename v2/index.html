@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es" class="no-js" data-nav="stage">
+<html lang="es" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cordada — El hub de IA de Hike</title>
   <meta name="description" content="Cordada es el hub de IA para marketing de Hike: seis productos atados a una misma cuerda. De lo que la gente dice de tu marca a la pieza publicada, revisada y medida. Una sola entrada." />
-  <meta name="theme-color" content="#121216" />
+  <meta name="theme-color" content="#0b0a10" />
   <link rel="canonical" href="https://dartsteam.github.io/hike-creative/v2/" />
 
   <meta property="og:type" content="website" />
@@ -22,7 +22,6 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Cordada by Hike",
-    "alternateName": "Hike Products",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "url": "https://dartsteam.github.io/hike-creative/v2/",
@@ -43,16 +42,13 @@
     })();
   </script>
 
-  <link rel="preload" href="fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="media/cortes/social-listener.jpg" as="image" />
+  <link rel="preload" href="media/hike-gradient.jpg" as="image" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
-  <!-- Íconos de los productos (trazo, estilo lucide). Un solo sprite, se usan con <use>. -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <symbol id="i-radar" viewBox="0 0 24 24"><path d="M19.07 4.93A10 10 0 0 0 6.99 3.34"/><path d="M4 6h.01"/><path d="M2.29 9.62A10 10 0 1 0 21.31 8.35"/><path d="M16.24 7.76A6 6 0 1 0 8.23 16.67"/><path d="M12 18h.01"/><path d="M17.99 11.66A6 6 0 0 1 15.77 16.67"/><circle cx="12" cy="12" r="2"/><path d="m13.41 10.59 5.66-5.66"/></symbol>
@@ -61,8 +57,6 @@
       <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/><path d="m16 16-1.9-1.9"/></symbol>
       <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
       <symbol id="i-chat" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></symbol>
-      <symbol id="i-gantt" viewBox="0 0 24 24"><path d="M10 6h8"/><path d="M12 16h6"/><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M8 11h7"/></symbol>
-      <symbol id="i-binoculars" viewBox="0 0 24 24"><path d="M10 10h4"/><path d="M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3"/><path d="M20 21a2 2 0 0 0 2-2v-3.851c0-1.39-2-2.962-2-4.829V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2z"/><path d="M22 16H2"/><path d="M4 21a2 2 0 0 1-2-2v-3.851c0-1.39 2-2.962 2-4.829V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2z"/><path d="M9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/></symbol>
       <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
       <symbol id="i-key" viewBox="0 0 24 24"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/></symbol>
       <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z" fill="currentColor" stroke="none"/></symbol>
@@ -70,86 +64,117 @@
       <symbol id="i-expand" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/></symbol>
       <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
       <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></symbol>
+      <symbol id="i-mark" viewBox="0 0 32 32"><path d="M4 25.5 L12 16.5 L19 21 L28 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="16.5" r="2" fill="currentColor" stroke="none"/><circle cx="19" cy="21" r="2" fill="currentColor" stroke="none"/><circle cx="28" cy="7.5" r="2.6" fill="#AD87FF" stroke="none"/></symbol>
     </defs>
   </svg>
-
-  <div class="grain" aria-hidden="true"></div>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="top">
     <span class="nav__progress" id="navProgress" aria-hidden="true"></span>
     <div class="nav__inner">
       <a class="brand" href="#top" aria-label="Cordada, inicio">
-        <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="28" height="28">
-            <path d="M4 25.5 L12 16.5 L19 21 L28 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="12" cy="16.5" r="2.4" fill="currentColor"/>
-            <circle cx="19" cy="21" r="2.4" fill="currentColor"/>
-            <circle cx="28" cy="7.5" r="3" fill="#AD87FF"/>
-          </svg>
-        </span>
+        <svg class="brand__mark" width="24" height="24" aria-hidden="true"><use href="#i-mark"/></svg>
         <span class="brand__word">Cordada</span>
-        <span class="brand__by">by Hike</span>
       </a>
-
       <nav class="nav__links" aria-label="Principal">
-        <a href="#historia">La historia</a>
-        <a href="#cuerda">La cuerda</a>
+        <a href="#historia">Historia</a>
+        <a href="#piezas">Piezas</a>
+        <a href="#integraciones">Integraciones</a>
         <a href="#preguntas">Preguntas</a>
-        <a href="#empezar">Empezar</a>
+        <a href="#contacto">Contacto</a>
       </nav>
-
       <div class="nav__actions">
-        <a class="nav__enter" href="https://products.hikethecloud.com" rel="noopener">Entrar <span class="arrow" aria-hidden="true">↗</span></a>
-        <a class="btn btn--pill btn--nav" href="#contacto">Pedir una demo</a>
-        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
-          <span></span><span></span>
-        </button>
+        <a class="nav__enter" href="https://products.hikethecloud.com" rel="noopener">Entrar</a>
+        <a class="pill pill--nav" href="#contacto">Pedir una demo</a>
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú"><span></span><span></span></button>
       </div>
     </div>
-
     <div class="nav__mobile" id="mobileMenu" hidden>
-      <a href="#historia">La historia</a>
-      <a href="#cuerda">La cuerda</a>
+      <a href="#historia">Historia</a>
+      <a href="#piezas">Piezas</a>
+      <a href="#integraciones">Integraciones</a>
       <a href="#preguntas">Preguntas</a>
-      <a href="#empezar">Empezar</a>
+      <a href="#contacto">Contacto</a>
       <a href="https://products.hikethecloud.com" rel="noopener">Entrar a Cordada ↗</a>
-      <a class="btn btn--pill nav__mobile-cta" href="#contacto">Pedir una demo</a>
     </div>
   </header>
 
   <main id="main">
 
     <!-- ============ HERO ============ -->
-    <section class="hero" data-tone="stage" aria-labelledby="hero-title">
-      <div class="hero__aura" aria-hidden="true"></div>
-      <div class="wrap hero__grid">
-        <div class="hero__head">
-          <p class="eyebrow eyebrow--light reveal">Hike presenta su hub de IA para marketing</p>
-          <h1 class="hero__title reveal" id="hero-title">Cordada.</h1>
-          <!-- La cuerda bajo el nombre: seis nudos, uno por producto, al ritmo del reel -->
-          <div class="hero__rope reveal" id="heroRope">
-            <svg class="hero__rope-svg hero__rope-svg--base" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true"><path d="M12 33 L200 27 L400 19 L600 23 L800 12 L988 6"/></svg>
-            <svg class="hero__rope-svg hero__rope-svg--fill" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true"><path d="M12 33 L200 27 L400 19 L600 23 L800 12 L988 6"/></svg>
-            <button class="knot" type="button" data-i="0" style="--x:1.2%;--y:82.5%" aria-label="Ver Social Listener en el reel"></button>
-            <button class="knot" type="button" data-i="1" style="--x:20%;--y:67.5%" aria-label="Ver Re·Adapt en el reel"></button>
-            <button class="knot" type="button" data-i="2" style="--x:40%;--y:47.5%" aria-label="Ver Imprint en el reel"></button>
-            <button class="knot" type="button" data-i="3" style="--x:60%;--y:57.5%" aria-label="Ver Creative Check en el reel"></button>
-            <button class="knot" type="button" data-i="4" style="--x:80%;--y:30%" aria-label="Ver Implementador en el reel"></button>
-            <button class="knot" type="button" data-i="5" style="--x:98.8%;--y:15%" aria-label="Ver Lanchat en el reel"></button>
-          </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="hero__layer hero__layer--a"></span>
+        <span class="hero__layer hero__layer--b"></span>
+        <span class="hero__veil"></span>
+      </div>
+      <div class="hero__center">
+        <p class="hero__kicker reveal">Hike presenta</p>
+        <h1 class="hero__title reveal" id="hero-title">Cordada</h1>
+        <p class="hero__tagline reveal">El hub de IA para marketing</p>
+        <p class="hero__sub reveal">Seis productos atados a una misma cuerda. De lo que la gente dice de tu marca a la pieza publicada, revisada y medida.</p>
+        <div class="hero__cta reveal">
+          <a class="pill pill--solid" href="#contacto">Pedir una demo</a>
+          <a class="pill" href="#producto">Ver cómo funciona</a>
         </div>
-        <div class="hero__copy">
-          <p class="hero__sub reveal">Seis productos de IA, atados a una misma cuerda. De lo que la gente dice de tu marca a la pieza publicada, revisada y medida. Un solo lugar, una sola entrada.</p>
-          <div class="hero__cta reveal">
-            <a class="btn btn--pill btn--violet btn--magnetic" href="#historia">Leer la historia <span class="arrow" aria-hidden="true">↓</span></a>
-            <a class="btn btn--text btn--text-light" href="#contacto">Pedir una demo <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
-        </div>
+      </div>
+      <div class="hero__foot" aria-hidden="true">
+        <span>Escuchar · Crear · Multiplicar · Revisar · Publicar · Entender</span>
+        <span class="hero__line"></span>
+        <span>Buenos Aires · 2026</span>
+      </div>
+    </section>
 
-        <!-- La lista de reproducción: los seis recortes, uno detrás del otro -->
+    <!-- ============ CLIENTES ============ -->
+    <section class="clients" aria-label="Marcas que trabajan con Hike">
+      <p class="label clients__label">Confían en nosotros</p>
+      <div class="marquee marquee--clients">
+        <ul class="marquee__track">
+          <li><img src="media/clients/despegar.png" alt="Despegar" width="165" height="47" loading="lazy" /></li>
+          <li><img src="media/clients/directv.png" alt="DIRECTV" width="150" height="31" loading="lazy" /></li>
+          <li><img src="media/clients/sodimac.png" alt="Sodimac" width="206" height="35" loading="lazy" /></li>
+          <li><img src="media/clients/unicomer.png" alt="Unicomer" width="148" height="62" loading="lazy" /></li>
+          <li><img src="media/clients/assist-card.png" alt="Assist Card" width="128" height="37" loading="lazy" /></li>
+          <li><img src="media/clients/astropay.png" alt="AstroPay" width="163" height="45" loading="lazy" /></li>
+          <li><img src="media/clients/cocos.png" alt="Cocos" width="142" height="64" loading="lazy" /></li>
+          <li><img src="media/clients/zinli.png" alt="Zinli" width="105" height="43" loading="lazy" /></li>
+        </ul>
+        <ul class="marquee__track" aria-hidden="true">
+          <li><img src="media/clients/despegar.png" alt="" width="165" height="47" loading="lazy" /></li>
+          <li><img src="media/clients/directv.png" alt="" width="150" height="31" loading="lazy" /></li>
+          <li><img src="media/clients/sodimac.png" alt="" width="206" height="35" loading="lazy" /></li>
+          <li><img src="media/clients/unicomer.png" alt="" width="148" height="62" loading="lazy" /></li>
+          <li><img src="media/clients/assist-card.png" alt="" width="128" height="37" loading="lazy" /></li>
+          <li><img src="media/clients/astropay.png" alt="" width="163" height="45" loading="lazy" /></li>
+          <li><img src="media/clients/cocos.png" alt="" width="142" height="64" loading="lazy" /></li>
+          <li><img src="media/clients/zinli.png" alt="" width="105" height="43" loading="lazy" /></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTO: el reel ============ -->
+    <section class="product" id="producto" aria-labelledby="product-title">
+      <div class="wrap">
+        <header class="head head--center reveal">
+          <p class="label label--accent">Cómo funciona</p>
+          <h2 class="title" id="product-title">Seis productos.<br /><span class="accent">Una sola cuerda.</span></h2>
+        </header>
+
         <div class="reel reveal" id="reel" aria-label="Cómo funciona cada producto">
-          <div class="reel__glow" aria-hidden="true"></div>
+          <!-- La cuerda: cada nudo es un producto; el tramo violeta avanza con el video -->
+          <div class="rope" id="reelRope">
+            <svg class="rope__svg rope__svg--base" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M100 30 L300 26 L500 19 L700 23 L900 13 L1100 8"/></svg>
+            <svg class="rope__svg rope__svg--fill" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M100 30 L300 26 L500 19 L700 23 L900 13 L1100 8"/></svg>
+            <ol class="rope__knots" id="reelChapters">
+              <li style="--x:8.333%;--y:75%"><button class="knot" type="button" data-i="0"><span class="knot__dot" aria-hidden="true"></span><span class="knot__name">Social Listener</span></button></li>
+              <li style="--x:25%;--y:65%"><button class="knot" type="button" data-i="1"><span class="knot__dot" aria-hidden="true"></span><span class="knot__name">Re·Adapt</span></button></li>
+              <li style="--x:41.667%;--y:47.5%"><button class="knot" type="button" data-i="2"><span class="knot__dot" aria-hidden="true"></span><span class="knot__name">Imprint</span></button></li>
+              <li style="--x:58.333%;--y:57.5%"><button class="knot" type="button" data-i="3"><span class="knot__dot" aria-hidden="true"></span><span class="knot__name">Creative Check</span></button></li>
+              <li style="--x:75%;--y:32.5%"><button class="knot" type="button" data-i="4"><span class="knot__dot" aria-hidden="true"></span><span class="knot__name">Implementador</span></button></li>
+              <li style="--x:91.667%;--y:20%"><button class="knot" type="button" data-i="5"><span class="knot__dot" aria-hidden="true"></span><span class="knot__name">Lanchat</span></button></li>
+            </ol>
+          </div>
+
           <div class="reel__frame" id="reelFrame">
             <video class="reel__video" data-i="0" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
             <video class="reel__video" data-i="1" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
@@ -160,99 +185,68 @@
             <span class="reel__tag" id="reelTag" aria-hidden="true"><b>01</b> Social Listener</span>
             <button class="reel__big" id="reelBig" type="button" hidden>
               <span class="visually-hidden">Reproducir</span>
-              <span class="reel__big-disc" aria-hidden="true"><svg width="22" height="22"><use href="#i-play"/></svg></span>
+              <span class="reel__big-disc" aria-hidden="true"><svg width="20" height="20"><use href="#i-play"/></svg></span>
             </button>
-          </div>
-
-          <div class="reel__bar">
-            <button class="reel__toggle" id="reelToggle" type="button" aria-label="Pausar" aria-pressed="true">
-              <svg class="reel__ic reel__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
-              <svg class="reel__ic reel__ic--play" width="14" height="14"><use href="#i-play"/></svg>
-            </button>
-            <ol class="reel__chapters" id="reelChapters">
-              <li><button type="button" data-i="0" aria-label="Social Listener"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Social Listener</span></button></li>
-              <li><button type="button" data-i="1" aria-label="Re·Adapt"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Re·Adapt</span></button></li>
-              <li><button type="button" data-i="2" aria-label="Imprint"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Imprint</span></button></li>
-              <li><button type="button" data-i="3" aria-label="Creative Check"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Creative Check</span></button></li>
-              <li><button type="button" data-i="4" aria-label="Implementador"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Implementador</span></button></li>
-              <li><button type="button" data-i="5" aria-label="Lanchat"><span class="reel__track"><span class="reel__fill"></span></span><span class="reel__name">Lanchat</span></button></li>
-            </ol>
           </div>
 
           <div class="reel__caption">
+            <button class="reel__toggle" id="reelToggle" type="button" aria-label="Pausar" aria-pressed="true">
+              <svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg>
+              <svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg>
+            </button>
             <p class="reel__text"><span class="reel__count" id="reelCount">01 / 06</span><span id="reelLine">Qué se dice de tus marcas y de la competencia en redes, y qué comentarios piden respuesta.</span></p>
             <div class="reel__actions">
-              <button class="reel__go" id="reelFull" type="button">Ver completa</button>
-              <a class="reel__go" id="reelGo" href="#tramo-1">Ir al tramo <span class="arrow" aria-hidden="true">→</span></a>
+              <button class="link" id="reelFull" type="button">Ver completa</button>
+              <a class="link" id="reelGo" href="#tramo-1">Ir al tramo</a>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Marcas: las del deck de Hike -->
-      <div class="wrap clients reveal" aria-label="Marcas que trabajan con Hike">
-        <p class="clients__label">Marcas que ya suben con Hike</p>
-        <ul class="clients__list">
-          <li>Despegar</li><li>DIRECTV</li><li>Sodimac</li><li>Unicomer</li><li>Assist Card</li><li>AstroPay</li><li>Cocos</li><li>Zinli</li>
-        </ul>
-      </div>
-      <a class="hero__scroll" href="#prologo" aria-label="Seguir leyendo"><span></span></a>
     </section>
 
     <!-- ============ PRÓLOGO ============ -->
-    <section class="prologue" id="prologo" data-tone="paper" aria-labelledby="prologue-title">
+    <section class="prologue" id="prologo" aria-labelledby="prologue-title">
       <div class="wrap prologue__grid">
-        <div class="prologue__lead">
-          <p class="eyebrow reveal">Prólogo</p>
-          <h2 class="prologue__title reveal" id="prologue-title">Nadie sube <em>solo.</em></h2>
-          <aside class="definition reveal" aria-label="Definición de cordada">
-            <p class="definition__word"><em>cordada</em> <span>f.</span></p>
-            <p class="definition__text">En montaña, el grupo de personas unidas por una misma cuerda. Si una resbala, las demás la sostienen.</p>
-          </aside>
+        <div>
+          <p class="label label--accent reveal">Prólogo</p>
+          <h2 class="title title--xl reveal" id="prologue-title">Nadie sube <span class="accent">solo.</span></h2>
         </div>
         <div class="prologue__body">
+          <p class="definition reveal"><span class="definition__word">cordada</span><span class="definition__gram">f.</span> En montaña, el grupo de personas unidas por una misma cuerda. Si una resbala, las demás la sostienen.</p>
           <p class="reveal">Hoy una campaña pasa por seis herramientas, seis logins y seis versiones del brief. En cada paso se pierde un poco: de la intención original, del tono de la marca, del tiempo del equipo.</p>
-          <p class="reveal">Cordada ata esos pasos. Cada producto hace una cosa bien, y todos comparten la misma cuerda: tu marca, tus clientes y tu entrada. Lo que sigue es una campaña contada de principio a fin, tramo por tramo. Lo que ves en cada video es el producto real.</p>
+          <p class="reveal">Cordada ata esos pasos. Cada producto hace una cosa bien, y todos comparten la misma cuerda: tu marca, tus clientes y tu entrada.</p>
         </div>
       </div>
 
-      <!-- La escena: seis productos sueltos que se atan a la cuerda a medida que se baja -->
       <div class="wrap scene-wrap" id="sceneWrap">
         <div class="scene reveal" id="scene" role="img" aria-label="Seis productos sueltos, cada uno con su login, se ordenan sobre una misma cuerda: una entrada, una marca.">
           <div class="scene__labels" aria-hidden="true">
-            <p class="scene__label scene__label--before"><b>Hoy</b> Seis herramientas. Seis logins. Seis versiones del brief.</p>
-            <p class="scene__label scene__label--after"><b>Cordada</b> Una cuerda. Una entrada. Una marca.</p>
+            <p class="scene__label scene__label--before"><b>Hoy</b>Seis herramientas. Seis logins.</p>
+            <p class="scene__label scene__label--after"><b>Cordada</b>Una cuerda. Una entrada.</p>
           </div>
           <svg class="scene__rope scene__rope--base" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true"><path d="M8 40 L24 34 L40 28 L58 22 L76 14 L92 8"/></svg>
           <svg class="scene__rope scene__rope--fill" viewBox="0 0 100 48" preserveAspectRatio="none" aria-hidden="true"><path d="M8 40 L24 34 L40 28 L58 22 L76 14 L92 8"/></svg>
-          <span class="scene__key" aria-hidden="true"><svg width="14" height="14"><use href="#i-key"/></svg> Una entrada</span>
-          <div class="tile" style="--sx:20;--sy:12;--sr:-8;--tx:8;--ty:40" aria-hidden="true"><span class="tile__icon"><svg width="16" height="16"><use href="#i-radar"/></svg></span><span class="tile__name">Social Listener</span><span class="tile__lock"><svg width="10" height="10"><use href="#i-lock"/></svg></span></div>
-          <div class="tile" style="--sx:62;--sy:8;--sr:7;--tx:24;--ty:34" aria-hidden="true"><span class="tile__icon"><svg width="16" height="16"><use href="#i-wand"/></svg></span><span class="tile__name">Re·Adapt</span><span class="tile__lock"><svg width="10" height="10"><use href="#i-lock"/></svg></span></div>
-          <div class="tile" style="--sx:44;--sy:26;--sr:-5;--tx:40;--ty:28" aria-hidden="true"><span class="tile__icon"><svg width="16" height="16"><use href="#i-stamp"/></svg></span><span class="tile__name">Imprint</span><span class="tile__lock"><svg width="10" height="10"><use href="#i-lock"/></svg></span></div>
-          <div class="tile" style="--sx:84;--sy:20;--sr:9;--tx:58;--ty:22" aria-hidden="true"><span class="tile__icon"><svg width="16" height="16"><use href="#i-scan"/></svg></span><span class="tile__name">Creative Check</span><span class="tile__lock"><svg width="10" height="10"><use href="#i-lock"/></svg></span></div>
-          <div class="tile" style="--sx:16;--sy:38;--sr:6;--tx:76;--ty:14" aria-hidden="true"><span class="tile__icon"><svg width="16" height="16"><use href="#i-rocket"/></svg></span><span class="tile__name">Implementador</span><span class="tile__lock"><svg width="10" height="10"><use href="#i-lock"/></svg></span></div>
-          <div class="tile" style="--sx:70;--sy:40;--sr:-7;--tx:92;--ty:8" aria-hidden="true"><span class="tile__icon"><svg width="16" height="16"><use href="#i-chat"/></svg></span><span class="tile__name">Lanchat</span><span class="tile__lock"><svg width="10" height="10"><use href="#i-lock"/></svg></span></div>
+          <span class="scene__key" aria-hidden="true"><svg width="12" height="12"><use href="#i-key"/></svg> Una entrada</span>
+          <div class="tile" style="--sx:20;--sy:12;--sr:-8;--tx:8;--ty:40" aria-hidden="true"><svg width="14" height="14"><use href="#i-radar"/></svg><span class="tile__name">Social Listener</span><span class="tile__lock"><svg width="9" height="9"><use href="#i-lock"/></svg></span></div>
+          <div class="tile" style="--sx:62;--sy:8;--sr:7;--tx:24;--ty:34" aria-hidden="true"><svg width="14" height="14"><use href="#i-wand"/></svg><span class="tile__name">Re·Adapt</span><span class="tile__lock"><svg width="9" height="9"><use href="#i-lock"/></svg></span></div>
+          <div class="tile" style="--sx:44;--sy:26;--sr:-5;--tx:40;--ty:28" aria-hidden="true"><svg width="14" height="14"><use href="#i-stamp"/></svg><span class="tile__name">Imprint</span><span class="tile__lock"><svg width="9" height="9"><use href="#i-lock"/></svg></span></div>
+          <div class="tile" style="--sx:84;--sy:20;--sr:9;--tx:58;--ty:22" aria-hidden="true"><svg width="14" height="14"><use href="#i-scan"/></svg><span class="tile__name">Creative Check</span><span class="tile__lock"><svg width="9" height="9"><use href="#i-lock"/></svg></span></div>
+          <div class="tile" style="--sx:16;--sy:38;--sr:6;--tx:76;--ty:14" aria-hidden="true"><svg width="14" height="14"><use href="#i-rocket"/></svg><span class="tile__name">Implementador</span><span class="tile__lock"><svg width="9" height="9"><use href="#i-lock"/></svg></span></div>
+          <div class="tile" style="--sx:70;--sy:40;--sr:-7;--tx:92;--ty:8" aria-hidden="true"><svg width="14" height="14"><use href="#i-chat"/></svg><span class="tile__name">Lanchat</span><span class="tile__lock"><svg width="9" height="9"><use href="#i-lock"/></svg></span></div>
         </div>
-        <p class="scene__caption reveal"><span class="rope-dash" aria-hidden="true"></span>Seis tramos. Una cuerda.</p>
       </div>
     </section>
 
     <!-- ============ LA HISTORIA ============ -->
-    <section class="story" id="historia" data-tone="stage" aria-labelledby="story-title">
+    <section class="story" id="historia" aria-labelledby="story-title">
       <div class="wrap">
-        <header class="section-head section-head--wide reveal">
-          <p class="eyebrow eyebrow--light" data-index="01">La historia</p>
-          <h2 class="section-title" id="story-title">Una campaña, de principio a fin. <span class="dim">Seis tramos. En cada uno, un producto que ya funciona para marcas de la región.</span></h2>
+        <header class="head reveal">
+          <p class="label label--accent">La historia</p>
+          <h2 class="title" id="story-title">Una campaña,<br /><span class="accent">de principio a fin.</span></h2>
+          <p class="lede">Seis tramos. En cada uno, un producto que ya funciona para marcas de la región. Lo que ves en cada video es el producto real.</p>
         </header>
-
-        <!-- Índice compacto, para el celular: en escritorio lo reemplaza el riel -->
         <nav class="index" aria-label="Tramos">
-          <a href="#tramo-1"><b>01</b> Escuchar</a>
-          <a href="#tramo-2"><b>02</b> Crear</a>
-          <a href="#tramo-3"><b>03</b> Multiplicar</a>
-          <a href="#tramo-4"><b>04</b> Revisar</a>
-          <a href="#tramo-5"><b>05</b> Publicar</a>
-          <a href="#tramo-6"><b>06</b> Entender</a>
+          <a href="#tramo-1"><b>01</b> Escuchar</a><a href="#tramo-2"><b>02</b> Crear</a><a href="#tramo-3"><b>03</b> Multiplicar</a><a href="#tramo-4"><b>04</b> Revisar</a><a href="#tramo-5"><b>05</b> Publicar</a><a href="#tramo-6"><b>06</b> Entender</a>
         </nav>
       </div>
 
@@ -271,232 +265,176 @@
 
         <div class="chapters">
 
-          <!-- 01 · Escuchar -->
           <article class="chapter" id="tramo-1" data-chapter="1">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="0">
                 <video class="demo__video" muted playsinline loop preload="none" data-poster="media/social-listener.jpg" data-src="media/social-listener.mp4" aria-label="Demo de Social Listener"></video>
                 <div class="demo__controls">
-                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
-                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
-                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
-                  </button>
-                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
                 <figcaption class="demo__cap">Social Listener · 20 s</figcaption>
               </figure>
             </div>
             <div class="chapter__text">
-              <p class="chapter__num reveal">Tramo 01</p>
+              <p class="chapter__num reveal">Tramo 01 · Social Listener</p>
               <h3 class="chapter__verb reveal">Escuchar</h3>
               <p class="chapter__line reveal">Antes de hablar, escuchá.</p>
-              <div class="product reveal">
-                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-radar"/></svg></span>
-                <span class="product__name">Social Listener</span>
-              </div>
               <p class="chapter__lede reveal">Qué se dice de tus marcas y de la competencia en redes, y qué comentarios piden respuesta.</p>
-              <ul class="chapter__list reveal">
-                <li>Engagement, sentimiento y tendencias por marca: de las tuyas y de la competencia.</li>
-                <li>Una bandeja con los comentarios que piden respuesta, con la que sugiere la IA en el tono de tu marca.</li>
-                <li>Escaneos a pedido de una cuenta, un post o un tema en Instagram, TikTok, X, YouTube o Facebook.</li>
+              <ul class="feats reveal">
+                <li><b>Sentimiento y tendencias</b>Engagement, sentimiento y temas por marca, de las tuyas y de la competencia.</li>
+                <li><b>Bandeja de respuesta</b>Los comentarios que piden respuesta, con la que sugiere la IA en el tono de tu marca.</li>
+                <li><b>Escaneo a pedido</b>Una cuenta, un post o un tema en Instagram, TikTok, X, YouTube o Facebook.</li>
               </ul>
-              <p class="chapter__shift reveal"><span>Lo que cambia</span>Respondés antes de que la queja escale, y sabés de qué habla la gente antes de escribir el brief.</p>
-              <p class="chapter__who reveal"><span>Para quién</span>Marketing y comunicación de la marca, con el equipo de ABN que la acompaña.</p>
+              <p class="shift reveal"><span>Lo que cambia</span>Respondés antes de que la queja escale, y sabés de qué habla la gente antes de escribir el brief.</p>
               <div class="chapter__cta reveal">
-                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Escuchar (Social Listener)">Pedir una demo</a>
-                <button class="btn btn--text btn--text-light demo__open" type="button" data-demo="0">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+                <a class="pill pill--solid" href="#contacto" data-interes="Escuchar (Social Listener)">Pedir una demo</a>
+                <button class="link demo__open" type="button" data-demo="0">Ver la demo completa</button>
               </div>
             </div>
           </article>
 
-          <!-- 02 · Crear -->
           <article class="chapter chapter--rev" id="tramo-2" data-chapter="2">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="1">
                 <video class="demo__video" muted playsinline loop preload="none" data-poster="media/readapt.jpg" data-src="media/readapt.mp4" aria-label="Demo de Re·Adapt"></video>
                 <div class="demo__controls">
-                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
-                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
-                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
-                  </button>
-                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
                 <figcaption class="demo__cap">Re·Adapt · 35 s</figcaption>
               </figure>
             </div>
             <div class="chapter__text">
-              <p class="chapter__num reveal">Tramo 02</p>
+              <p class="chapter__num reveal">Tramo 02 · Re·Adapt</p>
               <h3 class="chapter__verb reveal">Crear</h3>
               <p class="chapter__line reveal">La idea, en minutos y en todos los formatos.</p>
-              <div class="product reveal">
-                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-wand"/></svg></span>
-                <span class="product__name">Re·Adapt</span>
-              </div>
               <p class="chapter__lede reveal">Generá piezas con IA, retocalas por partes y llevalas a todos los formatos.</p>
-              <ul class="chapter__list reveal">
-                <li>Un chat que genera imágenes a partir de un pedido o de referencias, y edita la que tiene abierta.</li>
-                <li>Un canvas que encadena referencias, instrucción, generación y adaptación a cada formato, en lotes de hasta 20 imágenes.</li>
-                <li>Retoque por partes: marcás un elemento, lo cambia y guarda cada versión.</li>
+              <ul class="feats reveal">
+                <li><b>Chat creativo</b>Genera imágenes a partir de un pedido o de referencias, y edita la que tiene abierta.</li>
+                <li><b>Canvas de pasos</b>Referencias, instrucción, generación y adaptación a cada formato, en lotes de hasta 20 imágenes.</li>
+                <li><b>Retoque por partes</b>Marcás un elemento, lo cambia y guarda cada versión.</li>
               </ul>
-              <p class="chapter__shift reveal"><span>Lo que cambia</span>La primera versión está en minutos. El equipo decide en vez de rehacer.</p>
-              <p class="chapter__who reveal"><span>Para quién</span>Equipos creativos. Genera imágenes, no video.</p>
+              <p class="shift reveal"><span>Lo que cambia</span>La primera versión está en minutos. El equipo decide en vez de rehacer.</p>
               <div class="chapter__cta reveal">
-                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Crear (Re·Adapt)">Pedir una demo</a>
-                <button class="btn btn--text btn--text-light demo__open" type="button" data-demo="1">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+                <a class="pill pill--solid" href="#contacto" data-interes="Crear (Re·Adapt)">Pedir una demo</a>
+                <button class="link demo__open" type="button" data-demo="1">Ver la demo completa</button>
               </div>
             </div>
           </article>
 
-          <!-- 03 · Multiplicar -->
           <article class="chapter" id="tramo-3" data-chapter="3">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="2">
                 <video class="demo__video" muted playsinline loop preload="none" data-poster="media/imprint.jpg" data-src="media/imprint.mp4" aria-label="Demo de Imprint"></video>
                 <div class="demo__controls">
-                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
-                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
-                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
-                  </button>
-                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
                 <figcaption class="demo__cap">Imprint · 32 s</figcaption>
               </figure>
             </div>
             <div class="chapter__text">
-              <p class="chapter__num reveal">Tramo 03</p>
+              <p class="chapter__num reveal">Tramo 03 · Imprint</p>
               <h3 class="chapter__verb reveal">Multiplicar</h3>
-              <p class="chapter__line reveal">Una pieza. Cientos de medidas. Una sola identidad.</p>
-              <div class="product reveal">
-                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-stamp"/></svg></span>
-                <span class="product__name">Imprint</span>
-              </div>
+              <p class="chapter__line reveal">Una pieza. Cientos de medidas. Una identidad.</p>
               <p class="chapter__lede reveal">Armá creativos en todas las medidas con la identidad de la marca, y repetilos por cientos.</p>
-              <ul class="chapter__list reveal">
-                <li>De una imagen y un texto, arma la pieza y la lleva a cada medida y a cada red donde se publica.</li>
-                <li>La primera pieza define la identidad: los colores y las tipografías de las que siguen se auditan contra ella.</li>
-                <li>Un catálogo repite un creativo con otros datos: cientos de piezas de una vez, con tu biblioteca y tus tipografías.</li>
+              <ul class="feats reveal">
+                <li><b>Todas las medidas</b>De una imagen y un texto, arma la pieza y la lleva a cada medida y a cada red.</li>
+                <li><b>Identidad auditada</b>La primera pieza define colores y tipografías; las que siguen se controlan contra ella.</li>
+                <li><b>Catálogo</b>Repite un creativo con otros datos: cientos de piezas de una vez.</li>
               </ul>
-              <p class="chapter__shift reveal"><span>Lo que cambia</span>Las cien medidas salen de una sola, con la misma identidad. Nadie vuelve a abrir el archivo.</p>
-              <p class="chapter__who reveal"><span>Para quién</span>Equipos creativos y de paid media.</p>
+              <p class="shift reveal"><span>Lo que cambia</span>Las cien medidas salen de una sola, con la misma identidad. Nadie vuelve a abrir el archivo.</p>
               <div class="chapter__cta reveal">
-                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Multiplicar (Imprint)">Pedir una demo</a>
-                <button class="btn btn--text btn--text-light demo__open" type="button" data-demo="2">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+                <a class="pill pill--solid" href="#contacto" data-interes="Multiplicar (Imprint)">Pedir una demo</a>
+                <button class="link demo__open" type="button" data-demo="2">Ver la demo completa</button>
               </div>
             </div>
           </article>
 
-          <!-- 04 · Revisar -->
           <article class="chapter chapter--rev" id="tramo-4" data-chapter="4">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="3">
                 <video class="demo__video" muted playsinline loop preload="none" data-poster="media/creative-check.jpg" data-src="media/creative-check.mp4" aria-label="Demo de Creative Check"></video>
                 <div class="demo__controls">
-                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
-                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
-                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
-                  </button>
-                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
                 <figcaption class="demo__cap">Creative Check · 29 s</figcaption>
               </figure>
             </div>
             <div class="chapter__text">
-              <p class="chapter__num reveal">Tramo 04</p>
+              <p class="chapter__num reveal">Tramo 04 · Creative Check</p>
               <h3 class="chapter__verb reveal">Revisar</h3>
               <p class="chapter__line reveal">Antes de pagar por mostrarla, sabé si funciona.</p>
-              <div class="product reveal">
-                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-scan"/></svg></span>
-                <span class="product__name">Creative Check</span>
-              </div>
               <p class="chapter__lede reveal">Revisá una pieza antes de publicarla y escribile los copies.</p>
-              <ul class="chapter__list reveal">
-                <li>Puntúa una imagen o un video de 0 a 100 con el framework ABCD de Google: sale, sale con ajustes o se rehace.</li>
-                <li>Marca las tres mejoras con más impacto y, si es una imagen, arma la versión mejorada, también en otro formato.</li>
-                <li>Escribe los copies de Meta, Google, TikTok y Uber con las reglas de tu marca, y los mide.</li>
+              <ul class="feats reveal">
+                <li><b>Score de 0 a 100</b>Con el framework ABCD de Google: sale, sale con ajustes o se rehace.</li>
+                <li><b>Versión mejorada</b>Las tres mejoras con más impacto y, si es imagen, la pieza corregida en otro formato.</li>
+                <li><b>Copies medidos</b>Para Meta, Google, TikTok y Uber, con las reglas de tu marca.</li>
               </ul>
-              <p class="chapter__shift reveal"><span>Lo que cambia</span>Sabés qué pieza sale antes de pagar por mostrarla, y por qué.</p>
-              <p class="chapter__who reveal"><span>Para quién</span>Paid media y marketing de la marca. Cada cliente tiene su tope de gasto por día.</p>
+              <p class="shift reveal"><span>Lo que cambia</span>Sabés qué pieza sale antes de pagar por mostrarla, y por qué.</p>
               <div class="chapter__cta reveal">
-                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Revisar (Creative Check)">Pedir una demo</a>
-                <button class="btn btn--text btn--text-light demo__open" type="button" data-demo="3">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+                <a class="pill pill--solid" href="#contacto" data-interes="Revisar (Creative Check)">Pedir una demo</a>
+                <button class="link demo__open" type="button" data-demo="3">Ver la demo completa</button>
               </div>
             </div>
           </article>
 
-          <!-- 05 · Publicar -->
           <article class="chapter" id="tramo-5" data-chapter="5">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="4">
                 <video class="demo__video" muted playsinline loop preload="none" data-poster="media/implementador.jpg" data-src="media/implementador.mp4" aria-label="Demo de Implementador"></video>
                 <div class="demo__controls">
-                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
-                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
-                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
-                  </button>
-                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
                 <figcaption class="demo__cap">Implementador · 30 s</figcaption>
               </figure>
             </div>
             <div class="chapter__text">
-              <p class="chapter__num reveal">Tramo 05</p>
+              <p class="chapter__num reveal">Tramo 05 · Implementador <span class="tag">Lo opera ABN</span></p>
               <h3 class="chapter__verb reveal">Publicar</h3>
               <p class="chapter__line reveal">De la carpeta a Meta, en lote.</p>
-              <div class="product reveal">
-                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-rocket"/></svg></span>
-                <span class="product__name">Implementador</span>
-                <span class="chip">Lo opera el equipo de ABN</span>
-              </div>
               <p class="chapter__lede reveal">Subí anuncios a Meta en lote a partir de plantillas, sin armarlos uno por uno.</p>
-              <ul class="chapter__list reveal">
-                <li>Plantillas de anuncio de imagen, video o carrusel para cada cuenta de Meta.</li>
-                <li>Trae las piezas desde Google Drive, Basecamp o un link, y las deja listas para usar.</li>
-                <li>Sube las piezas, crea el creativo y el anuncio, país por país, y muestra el estado mientras corre.</li>
+              <ul class="feats reveal">
+                <li><b>Plantillas</b>De imagen, video o carrusel, para cada cuenta de Meta.</li>
+                <li><b>Desde donde estén</b>Trae las piezas de Google Drive, Basecamp o un link.</li>
+                <li><b>País por país</b>Sube las piezas, crea creativo y anuncio, y muestra el estado mientras corre.</li>
               </ul>
-              <p class="chapter__shift reveal"><span>Lo que cambia</span>Los anuncios se crean mientras el equipo sigue trabajando. Nada se sube a mano, uno por uno.</p>
-              <p class="chapter__who reveal"><span>Para quién</span>El equipo de implementación de paid media de ABN, sobre tus cuentas.</p>
+              <p class="shift reveal"><span>Lo que cambia</span>Los anuncios se crean mientras el equipo sigue trabajando. Nada se sube a mano.</p>
               <div class="chapter__cta reveal">
-                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Publicar (Implementador)">Pedir una demo</a>
-                <button class="btn btn--text btn--text-light demo__open" type="button" data-demo="4">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+                <a class="pill pill--solid" href="#contacto" data-interes="Publicar (Implementador)">Pedir una demo</a>
+                <button class="link demo__open" type="button" data-demo="4">Ver la demo completa</button>
               </div>
             </div>
           </article>
 
-          <!-- 06 · Entender -->
           <article class="chapter chapter--rev" id="tramo-6" data-chapter="6">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="5">
                 <video class="demo__video" muted playsinline loop preload="none" data-poster="media/lanchat.jpg" data-src="media/lanchat.mp4" aria-label="Demo de Lanchat"></video>
                 <div class="demo__controls">
-                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true">
-                    <svg class="demo__ic demo__ic--pause" width="14" height="14"><use href="#i-pause"/></svg>
-                    <svg class="demo__ic demo__ic--play" width="14" height="14"><use href="#i-play"/></svg>
-                  </button>
-                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="14" height="14"><use href="#i-expand"/></svg></button>
+                  <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
+                  <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
                 <figcaption class="demo__cap">Lanchat · 45 s</figcaption>
               </figure>
             </div>
             <div class="chapter__text">
-              <p class="chapter__num reveal">Tramo 06</p>
+              <p class="chapter__num reveal">Tramo 06 · Lanchat <span class="tag">Lo opera ABN</span></p>
               <h3 class="chapter__verb reveal">Entender</h3>
-              <p class="chapter__line reveal">Preguntale a tus datos como le preguntarías a alguien del equipo.</p>
-              <div class="product reveal">
-                <span class="product__icon" aria-hidden="true"><svg width="20" height="20"><use href="#i-chat"/></svg></span>
-                <span class="product__name">Lanchat</span>
-                <span class="chip">Lo opera el equipo de ABN</span>
-              </div>
+              <p class="chapter__line reveal">Preguntale a tus datos como a alguien del equipo.</p>
               <p class="chapter__lede reveal">El chat de ABN con los datos de cada cliente.</p>
-              <ul class="chapter__list reveal">
-                <li>Responde preguntas sobre tus métricas en lenguaje natural.</li>
-                <li>Arma y publica dashboards, reportes y el cierre del mes con tu marca.</li>
-                <li>Lee Sheets, Detrics y el conocimiento cargado de tu cuenta. También contesta en Slack.</li>
+              <ul class="feats reveal">
+                <li><b>Lenguaje natural</b>Responde preguntas sobre tus métricas, sin abrir un tablero.</li>
+                <li><b>Dashboards y reportes</b>Los arma y los publica, con el cierre del mes incluido.</li>
+                <li><b>Tus fuentes</b>Lee Sheets, Detrics y el conocimiento de tu cuenta. También contesta en Slack.</li>
               </ul>
-              <p class="chapter__shift reveal"><span>Lo que cambia</span>La pregunta sobre tus datos se contesta en el chat, con el reporte ya armado.</p>
-              <p class="chapter__who reveal"><span>Para quién</span>El equipo de ABN que lleva tu cuenta, con los datos de tu negocio.</p>
+              <p class="shift reveal"><span>Lo que cambia</span>La pregunta sobre tus datos se contesta en el chat, con el reporte ya armado.</p>
               <div class="chapter__cta reveal">
-                <a class="btn btn--pill btn--light" href="#contacto" data-interes="Entender (Lanchat)">Pedir una demo</a>
-                <button class="btn btn--text btn--text-light demo__open" type="button" data-demo="5">Ver la demo completa <span class="arrow" aria-hidden="true">→</span></button>
+                <a class="pill pill--solid" href="#contacto" data-interes="Entender (Lanchat)">Pedir una demo</a>
+                <button class="link demo__open" type="button" data-demo="5">Ver la demo completa</button>
               </div>
             </div>
           </article>
@@ -505,183 +443,164 @@
       </div>
 
       <div class="wrap">
-        <p class="epilogue reveal reveal--wipe"><span class="epilogue__knot" aria-hidden="true"></span>Y la cuerda vuelve al principio: lo que se aprendió en esta campaña ya está en la siguiente.</p>
+        <p class="epilogue reveal">Y la cuerda vuelve al principio: lo que se aprendió en esta campaña <span class="accent">ya está en la siguiente.</span></p>
       </div>
     </section>
 
-    <!-- ============ LA CUERDA ============ -->
-    <section class="rope" id="cuerda" data-tone="paper" aria-labelledby="rope-title">
-      <div class="wrap">
-        <header class="section-head section-head--wide reveal">
-          <p class="eyebrow" data-index="02">La cuerda</p>
-          <h2 class="section-title" id="rope-title">Lo que los une. <span class="dim">Cordada no es una lista de herramientas: es lo que comparten.</span></h2>
-        </header>
-
-        <ul class="pillars">
-          <li class="pillar reveal">
-            <span class="pillar__fig">Fig. 02.1</span>
-            <svg class="pillar__art" viewBox="0 0 160 96" aria-hidden="true">
-              <circle cx="30" cy="48" r="16"/><circle cx="30" cy="48" r="5"/>
-              <path d="M46 48h26"/><path d="M62 48v8"/><path d="M68 48v6"/>
-              <path d="M84 48h60"/>
-              <rect x="96" y="30" width="14" height="36" rx="2"/><rect x="118" y="30" width="14" height="36" rx="2"/><rect x="140" y="30" width="14" height="36" rx="2"/>
-              <circle cx="107" cy="49" r="1.4" fill="currentColor"/><circle cx="129" cy="49" r="1.4" fill="currentColor"/><circle cx="151" cy="49" r="1.4" fill="currentColor"/>
-            </svg>
-            <h3>Una sola entrada</h3>
-            <p>Entrás una vez, con tu cuenta de Google o Microsoft, y pasás de un producto a otro sin volver a loguearte.</p>
-          </li>
-          <li class="pillar reveal">
-            <span class="pillar__fig">Fig. 02.2</span>
-            <svg class="pillar__art" viewBox="0 0 160 96" aria-hidden="true">
-              <circle cx="40" cy="48" r="20"/><path d="M32 54V40l8 9 8-9v14"/>
-              <path d="M60 48h18"/><path d="M78 48c16 0 16-24 32-24h12"/><path d="M78 48h44"/><path d="M78 48c16 0 16 24 32 24h12"/>
-              <rect x="124" y="16" width="26" height="16" rx="3"/><rect x="124" y="40" width="26" height="16" rx="3"/><rect x="124" y="64" width="26" height="16" rx="3"/>
-            </svg>
-            <h3>Tu marca, cargada una vez</h3>
-            <p>Clientes, submarcas, dominios y personas se cargan en un lugar y todos los productos los respetan. Dar un acceso o cortarlo se hace una vez.</p>
-          </li>
-          <li class="pillar reveal">
-            <span class="pillar__fig">Fig. 02.3</span>
-            <svg class="pillar__art" viewBox="0 0 160 96" aria-hidden="true">
-              <path d="M12 78 L52 56 L92 44 L132 18"/>
-              <circle cx="52" cy="56" r="6"/><circle cx="92" cy="44" r="6"/><circle cx="132" cy="18" r="9" class="pillar__art-accent"/>
-              <path d="M126 18h12M132 12v12" class="pillar__art-accent"/>
-              <path d="M12 78v8M52 62v8M92 50v8"/>
-            </svg>
-            <h3>Un equipo en la cordada</h3>
-            <p>No es solo software. El equipo de ABN opera, acompaña y mejora cada producto con lo que pasa en tus campañas.</p>
-          </li>
-          <li class="pillar reveal">
-            <span class="pillar__fig">Fig. 02.4</span>
-            <svg class="pillar__art" viewBox="0 0 160 96" aria-hidden="true">
-              <path d="M52 56h60a16 16 0 0 0 0-32 24 24 0 0 0-46-6 18 18 0 0 0-14 38z"/>
-              <path d="M28 76h104"/><path d="M28 76h62" class="pillar__art-accent" stroke-width="3"/>
-              <path d="M90 70v12" class="pillar__art-accent"/>
-              <text x="96" y="90" font-size="8" font-family="ui-monospace, monospace" fill="currentColor" stroke="none">tope</text>
-            </svg>
-            <h3>Sobre Google Cloud</h3>
-            <p>Corre en Google Cloud y usa Gemini en Vertex AI. Con topes de gasto y créditos por cliente, la IA nunca es una sorpresa en la factura.</p>
-          </li>
-        </ul>
-
-        <div class="platforms reveal">
-          <p class="platforms__label">Se conecta con</p>
-          <ul class="platforms__list">
-            <li>Meta</li><li>Google Ads</li><li>TikTok</li><li>Instagram</li><li>YouTube</li><li>X</li><li>Facebook</li><li>Uber Ads</li><li>Google Drive</li><li>Basecamp</li><li>Slack</li><li>Google Sheets</li><li>BigQuery</li><li>Vertex AI</li><li>Detrics</li>
-          </ul>
+    <!-- ============ PIEZAS: el arco ============ -->
+    <section class="pieces" id="piezas" aria-labelledby="pieces-title">
+      <div class="pieces__bg" aria-hidden="true"></div>
+      <div class="arc" id="arc" aria-roledescription="carrusel" aria-label="Piezas de marcas que trabajan con el grupo ABN">
+        <div class="arc__stage" id="arcStage">
+          <figure class="arc__card"><img src="media/piezas/calm-1.jpg" alt="Calm, sillón en un living luminoso" width="720" height="720" loading="lazy" /><figcaption>Calm · Catálogo</figcaption></figure>
+          <figure class="arc__card arc__card--tall"><img src="media/piezas/dunkin-story.jpg" alt="Dunkin', docena fin de semana, story" width="387" height="516" loading="lazy" /><figcaption>Dunkin' · Story</figcaption></figure>
+          <figure class="arc__card"><img src="media/piezas/calm-2.jpg" alt="Calm, sillón modular azul" width="720" height="720" loading="lazy" /><figcaption>Calm · Catálogo</figcaption></figure>
+          <figure class="arc__card"><img src="media/piezas/tinka-square.jpg" alt="La Tinka Express, post cuadrado" width="600" height="600" loading="lazy" /><figcaption>La Tinka · Post 1:1</figcaption></figure>
+          <figure class="arc__card"><img src="media/piezas/abn-studio-1.jpg" alt="Silueta frente a un sol naranja" width="720" height="720" loading="lazy" /><figcaption>ABN Studio</figcaption></figure>
+          <figure class="arc__card"><img src="media/piezas/calm-3.jpg" alt="Calm, sommier en un dormitorio" width="720" height="720" loading="lazy" /><figcaption>Calm · Catálogo</figcaption></figure>
+          <figure class="arc__card"><img src="media/piezas/dunkin-square.jpg" alt="Dunkin', merch gratis, post cuadrado" width="720" height="720" loading="lazy" /><figcaption>Dunkin' · Post 1:1</figcaption></figure>
+          <figure class="arc__card"><img src="media/piezas/calm-4.jpg" alt="Calm, sillón azul con cuadros de surf" width="720" height="720" loading="lazy" /><figcaption>Calm · Catálogo</figcaption></figure>
+          <figure class="arc__card arc__card--tall"><img src="media/piezas/tinka-story.jpg" alt="La Tinka Express, pasos de compra, story" width="338" height="600" loading="lazy" /><figcaption>La Tinka · Story</figcaption></figure>
+          <figure class="arc__card"><img src="media/piezas/abn-studio-2.jpg" alt="Líneas de luz naranja" width="720" height="720" loading="lazy" /><figcaption>ABN Studio</figcaption></figure>
+          <figure class="arc__card"><img src="media/piezas/calm-5.jpg" alt="Calm, colchón en un dormitorio claro" width="720" height="720" loading="lazy" /><figcaption>Calm · Catálogo</figcaption></figure>
+          <figure class="arc__card"><img src="media/piezas/abn-studio-3.jpg" alt="Textura de luz cálida" width="720" height="720" loading="lazy" /><figcaption>ABN Studio</figcaption></figure>
+        </div>
+      </div>
+      <div class="wrap pieces__card-wrap">
+        <div class="glass reveal">
+          <p class="label">Piezas</p>
+          <h2 class="title title--md" id="pieces-title">Del producto a la pieza.<br /><span class="accent">En todos los formatos.</span></h2>
+          <p class="glass__text">Subí la imagen de tu producto, o tomala de tu catálogo, y llevala a cada formato y a cada red con la identidad de tu marca.</p>
+          <p class="glass__note">Piezas de Calm, Dunkin', La Tinka y ABN Studio, marcas que trabajan con el grupo ABN.</p>
         </div>
       </div>
     </section>
 
+    <!-- ============ INTEGRACIONES ============ -->
+    <section class="integrations" id="integraciones" aria-labelledby="int-title">
+      <div class="logos" aria-hidden="true">
+        <div class="logos__row">
+          <ul class="logos__track">
+            <li><img src="media/logos/meta-icon.svg" alt="" /></li><li><img src="media/logos/google-ads.svg" alt="" /></li><li><img src="media/logos/tiktok-icon.svg" alt="" /></li><li><img src="media/logos/instagram-icon.svg" alt="" /></li><li><img src="media/logos/youtube-icon.svg" alt="" /></li><li><img src="media/logos/facebook.svg" alt="" /></li><li><img src="media/logos/x.svg" alt="" /></li><li><img src="media/logos/si-uber.svg" alt="" /></li><li><img src="media/logos/google-marketing-platform.svg" alt="" /></li>
+          </ul>
+          <ul class="logos__track">
+            <li><img src="media/logos/meta-icon.svg" alt="" /></li><li><img src="media/logos/google-ads.svg" alt="" /></li><li><img src="media/logos/tiktok-icon.svg" alt="" /></li><li><img src="media/logos/instagram-icon.svg" alt="" /></li><li><img src="media/logos/youtube-icon.svg" alt="" /></li><li><img src="media/logos/facebook.svg" alt="" /></li><li><img src="media/logos/x.svg" alt="" /></li><li><img src="media/logos/si-uber.svg" alt="" /></li><li><img src="media/logos/google-marketing-platform.svg" alt="" /></li>
+          </ul>
+        </div>
+        <div class="logos__row logos__row--rev">
+          <ul class="logos__track">
+            <li><img src="media/logos/google-cloud.svg" alt="" /></li><li><img src="media/logos/si-googlebigquery.svg" alt="" /></li><li><img src="media/logos/google-gemini.svg" alt="" /></li><li><img src="media/logos/looker-icon.svg" alt="" /></li><li><img src="media/logos/google-data-studio.svg" alt="" /></li><li><img src="media/logos/google-analytics.svg" alt="" /></li><li><img src="media/logos/google-tag-manager.svg" alt="" /></li><li><img src="media/logos/cube-icon.svg" alt="" /></li><li><img src="media/logos/detrics.svg" alt="" class="is-wide" /></li>
+          </ul>
+          <ul class="logos__track">
+            <li><img src="media/logos/google-cloud.svg" alt="" /></li><li><img src="media/logos/si-googlebigquery.svg" alt="" /></li><li><img src="media/logos/google-gemini.svg" alt="" /></li><li><img src="media/logos/looker-icon.svg" alt="" /></li><li><img src="media/logos/google-data-studio.svg" alt="" /></li><li><img src="media/logos/google-analytics.svg" alt="" /></li><li><img src="media/logos/google-tag-manager.svg" alt="" /></li><li><img src="media/logos/cube-icon.svg" alt="" /></li><li><img src="media/logos/detrics.svg" alt="" class="is-wide" /></li>
+          </ul>
+        </div>
+        <div class="logos__row logos__row--slow">
+          <ul class="logos__track">
+            <li><img src="media/logos/si-googlesheets.svg" alt="" /></li><li><img src="media/logos/google-drive.svg" alt="" /></li><li><img src="media/logos/google-gmail.svg" alt="" /></li><li><img src="media/logos/google-calendar.svg" alt="" /></li><li><img src="media/logos/google-meet.svg" alt="" /></li><li><img src="media/logos/google-workspace.svg" alt="" class="is-wide" /></li><li><img src="media/logos/slack-icon.svg" alt="" /></li><li><img src="media/logos/basecamp-icon.svg" alt="" /></li><li><img src="media/logos/microsoft-icon.svg" alt="" /></li>
+          </ul>
+          <ul class="logos__track">
+            <li><img src="media/logos/si-googlesheets.svg" alt="" /></li><li><img src="media/logos/google-drive.svg" alt="" /></li><li><img src="media/logos/google-gmail.svg" alt="" /></li><li><img src="media/logos/google-calendar.svg" alt="" /></li><li><img src="media/logos/google-meet.svg" alt="" /></li><li><img src="media/logos/google-workspace.svg" alt="" class="is-wide" /></li><li><img src="media/logos/slack-icon.svg" alt="" /></li><li><img src="media/logos/basecamp-icon.svg" alt="" /></li><li><img src="media/logos/microsoft-icon.svg" alt="" /></li>
+          </ul>
+        </div>
+      </div>
+      <div class="integrations__copy reveal">
+        <p class="integrations__num" id="int-title"><span class="visually-hidden">Más de 25 plataformas conectadas: </span><span aria-hidden="true">+25</span></p>
+        <p class="integrations__label">Plataformas conectadas, de la pauta al dato</p>
+        <p class="integrations__list">Meta, Google Ads, TikTok, Instagram, YouTube, Facebook, X, Uber, Google Marketing Platform, Google Cloud, BigQuery, Gemini, Looker, Looker Studio, Google Analytics, Tag Manager, Cube, Detrics, Sheets, Drive, Gmail, Calendar, Meet, Workspace, Slack, Basecamp y Microsoft.</p>
+      </div>
+    </section>
+
+    <!-- ============ LA CUERDA ============ -->
+    <section class="rope-section" id="cuerda" aria-labelledby="rope-title">
+      <div class="wrap">
+        <header class="head reveal">
+          <p class="label label--accent">La cuerda</p>
+          <h2 class="title" id="rope-title">Lo que los une.<br /><span class="accent">No es una lista de herramientas.</span></h2>
+        </header>
+        <ol class="rows">
+          <li class="row reveal"><span class="row__num">01</span><h3 class="row__title">Una sola entrada</h3><p class="row__text">Entrás una vez, con tu cuenta de Google o Microsoft, y pasás de un producto a otro sin volver a loguearte.</p></li>
+          <li class="row reveal"><span class="row__num">02</span><h3 class="row__title">Tu marca, cargada una vez</h3><p class="row__text">Clientes, submarcas, dominios y personas se cargan en un lugar y todos los productos los respetan. Dar un acceso o cortarlo se hace una vez.</p></li>
+          <li class="row reveal"><span class="row__num">03</span><h3 class="row__title">Un equipo en la cordada</h3><p class="row__text">No es solo software. El equipo de ABN opera, acompaña y mejora cada producto con lo que pasa en tus campañas.</p></li>
+          <li class="row reveal"><span class="row__num">04</span><h3 class="row__title">Sobre Google Cloud</h3><p class="row__text">Corre en Google Cloud y usa Gemini en Vertex AI. Con topes de gasto y créditos por cliente, la IA nunca es una sorpresa en la factura.</p></li>
+        </ol>
+      </div>
+    </section>
+
     <!-- ============ HECHOS ============ -->
-    <section class="facts" data-tone="stage" aria-label="En números">
-      <div class="facts__aura" aria-hidden="true"></div>
+    <section class="facts" aria-label="En números">
       <div class="wrap">
         <ul class="facts__grid">
           <li class="fact reveal"><span class="fact__num">6</span><span class="fact__label">productos, una sola entrada</span></li>
           <li class="fact reveal"><span class="fact__num">0–100</span><span class="fact__label">el score de cada pieza antes de publicarla</span></li>
           <li class="fact reveal"><span class="fact__num">4</span><span class="fact__label">plataformas de copies: Meta, Google, TikTok y Uber</span></li>
-          <li class="fact reveal"><span class="fact__num">5</span><span class="fact__label">redes escuchadas: Instagram, TikTok, X, YouTube y Facebook</span></li>
           <li class="fact reveal"><span class="fact__num">×100</span><span class="fact__label">piezas de una vez, desde un catálogo</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- ============ LO QUE VIENE ============ -->
-    <section class="next" id="proximo" data-tone="paper" aria-labelledby="next-title">
-      <div class="wrap">
-        <header class="section-head reveal">
-          <p class="eyebrow" data-index="03">Lo que viene</p>
-          <h2 class="section-title" id="next-title">El próximo tramo.</h2>
-          <p class="section-lede">La cordada crece con lo que piden las campañas. Esto ya está en construcción.</p>
-        </header>
-        <ul class="upcoming">
-          <li class="upcoming__card reveal">
-            <div class="upcoming__head">
-              <span class="product__icon product__icon--paper" aria-hidden="true"><svg width="20" height="20"><use href="#i-gantt"/></svg></span>
-              <h3>Planes de medios</h3>
-              <span class="chip chip--paper">En camino</span>
-            </div>
-            <p>Armá el plan de medios de cada mes o de cada evento, pasalo por la aprobación del cliente y seguilo contra la meta, con lo que van dando las campañas desde BigQuery. Cada aprobación queda como una versión.</p>
-          </li>
-          <li class="upcoming__card reveal">
-            <div class="upcoming__head">
-              <span class="product__icon product__icon--paper" aria-hidden="true"><svg width="20" height="20"><use href="#i-binoculars"/></svg></span>
-              <h3>Competencia</h3>
-              <span class="chip chip--paper">Beta, en Creative Check</span>
-            </div>
-            <p>Lo que pautan tus competidores en Meta y en búsqueda de Google, leído de las bibliotecas públicas de anuncios y clasificado por ángulo, oferta y huecos que nadie está ocupando.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ EMPEZAR ============ -->
-    <section class="start" id="empezar" data-tone="stage" aria-labelledby="start-title">
-      <div class="start__aura" aria-hidden="true"></div>
-      <div class="wrap">
-        <header class="section-head section-head--center reveal">
-          <p class="eyebrow eyebrow--light" data-index="04">Cómo empezar</p>
-          <h2 class="section-title" id="start-title">Tres pasos y estás en la cordada.</h2>
-        </header>
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step__num">01</span>
-            <h3>Una demo de 30 minutos</h3>
-            <p>Te mostramos los seis tramos con una pieza tuya, no con una de ejemplo.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step__num">02</span>
-            <h3>Cargamos tu marca</h3>
-            <p>Clientes, dominios y personas, una sola vez. Elegís qué productos ve cada equipo.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step__num">03</span>
-            <h3>Entrás</h3>
-            <p>Desde el día uno, con tu cuenta de Google o Microsoft. Sin instalar nada.</p>
-          </li>
-        </ol>
-        <div class="start__cta reveal">
-          <a class="btn btn--pill btn--violet btn--lg btn--magnetic" href="#contacto">Pedir una demo <span class="arrow" aria-hidden="true">→</span></a>
+    <!-- ============ LO QUE VIENE + EMPEZAR ============ -->
+    <section class="next" id="proximo" aria-labelledby="next-title">
+      <div class="wrap next__grid">
+        <div>
+          <header class="head reveal">
+            <p class="label label--accent">Lo que viene</p>
+            <h2 class="title title--md" id="next-title">El próximo tramo.</h2>
+          </header>
+          <ul class="rows rows--compact">
+            <li class="row reveal"><span class="row__num">En camino</span><h3 class="row__title">Planes de medios</h3><p class="row__text">El plan de cada mes o de cada evento, aprobado por el cliente y seguido contra la meta con lo que dan las campañas.</p></li>
+            <li class="row reveal"><span class="row__num">Beta</span><h3 class="row__title">Competencia</h3><p class="row__text">Lo que pautan tus competidores en Meta y en Google, clasificado por ángulo, oferta y huecos que nadie ocupa.</p></li>
+          </ul>
+        </div>
+        <div id="empezar">
+          <header class="head reveal">
+            <p class="label label--accent">Cómo empezar</p>
+            <h2 class="title title--md">Tres pasos.</h2>
+          </header>
+          <ol class="rows rows--compact">
+            <li class="row reveal"><span class="row__num">01</span><h3 class="row__title">Una demo de 30 minutos</h3><p class="row__text">Te mostramos los seis tramos con una pieza tuya, no con una de ejemplo.</p></li>
+            <li class="row reveal"><span class="row__num">02</span><h3 class="row__title">Cargamos tu marca</h3><p class="row__text">Clientes, dominios y personas, una sola vez. Elegís qué productos ve cada equipo.</p></li>
+            <li class="row reveal"><span class="row__num">03</span><h3 class="row__title">Entrás</h3><p class="row__text">Desde el día uno, con tu cuenta de Google o Microsoft. Sin instalar nada.</p></li>
+          </ol>
         </div>
       </div>
     </section>
 
     <!-- ============ PREGUNTAS ============ -->
-    <section class="faq" id="preguntas" data-tone="paper" aria-labelledby="faq-title">
+    <section class="faq" id="preguntas" aria-labelledby="faq-title">
       <div class="wrap faq__grid">
-        <header class="section-head reveal">
-          <p class="eyebrow" data-index="05">Preguntas</p>
-          <h2 class="section-title" id="faq-title">Lo que nos preguntan antes de subir.</h2>
-          <p class="section-lede">Si falta la tuya, la contestamos en la demo.</p>
+        <header class="head reveal">
+          <p class="label label--accent">Preguntas</p>
+          <h2 class="title title--md" id="faq-title">Antes de subir.</h2>
+          <p class="lede">Si falta la tuya, la contestamos en la demo.</p>
         </header>
         <div class="faq__list reveal" id="faqList">
           <div class="faq__item">
-            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-1-q">¿Tengo que usar los seis productos?<span class="faq__ic" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-1" id="faq-1-q">¿Tengo que usar los seis productos?<span class="faq__ic" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span></button></h3>
             <div class="faq__a" id="faq-1" role="region" aria-labelledby="faq-1-q"><div><p>No. Elegís con qué tramo empezar y sumás el resto cuando lo pide la campaña. Creative Check viene habilitado por defecto: es el que más marcas usan primero.</p></div></div>
           </div>
           <div class="faq__item">
-            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-2-q">¿Quién ve mis datos y mis piezas?<span class="faq__ic" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-2" id="faq-2-q">¿Quién ve mis datos y mis piezas?<span class="faq__ic" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span></button></h3>
             <div class="faq__a" id="faq-2" role="region" aria-labelledby="faq-2-q"><div><p>Tu equipo y el equipo de ABN que lleva tu cuenta. Cada cliente tiene su espacio, con sus dominios y sus personas habilitadas. Todo lo que un producto escribe sobre tu cliente queda auditado, y ampliar un acceso lo decide una persona del equipo, nunca un sistema solo.</p></div></div>
           </div>
           <div class="faq__item">
-            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-3-q">¿Cómo entra mi equipo?<span class="faq__ic" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-3" id="faq-3-q">¿Cómo entra mi equipo?<span class="faq__ic" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span></button></h3>
             <div class="faq__a" id="faq-3" role="region" aria-labelledby="faq-3-q"><div><p>Con su cuenta de Google o Microsoft, si el dominio de la empresa o su correo está habilitado. Se entra una vez y se pasa de un producto a otro sin volver a loguearse.</p></div></div>
           </div>
           <div class="faq__item">
-            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-4-q">¿Cuánto cuesta la IA?<span class="faq__ic" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-4" id="faq-4-q">¿Cuánto cuesta la IA?<span class="faq__ic" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span></button></h3>
             <div class="faq__a" id="faq-4" role="region" aria-labelledby="faq-4-q"><div><p>Cada producto tiene topes de gasto o créditos por cliente, así nunca hay una sorpresa en la factura. Un análisis de Creative Check cuesta centavos y cada corrida muestra lo que costó.</p></div></div>
           </div>
           <div class="faq__item">
-            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-5-q">¿La demo es con una pieza mía?<span class="faq__ic" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-5-q">¿La demo es con una pieza mía?<span class="faq__ic" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span></button></h3>
             <div class="faq__a" id="faq-5" role="region" aria-labelledby="faq-5-q"><div><p>Sí. Traé una pieza que ya pautaste: la analizamos, la llevamos a otros formatos y le escribimos los copies en vivo. Así ves el resultado sobre tu marca, no sobre un ejemplo.</p></div></div>
           </div>
           <div class="faq__item">
-            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-7" id="faq-7-q">¿Tengo que dejar a mi agencia?<span class="faq__ic" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-7" id="faq-7-q">¿Tengo que dejar a mi agencia?<span class="faq__ic" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span></button></h3>
             <div class="faq__a" id="faq-7" role="region" aria-labelledby="faq-7-q"><div><p>No. Los accesos se dan por persona y por dominio, así que tu agencia puede entrar a los productos que elijas con su propia cuenta. Muchas marcas arrancan con Creative Check para revisar lo que la agencia les manda, antes de pautar.</p></div></div>
           </div>
           <div class="faq__item">
-            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-6-q">¿Y si quiero dejar de usarlo?<span class="faq__ic" aria-hidden="true"><svg width="16" height="16"><use href="#i-plus"/></svg></span></button></h3>
+            <h3><button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-6-q">¿Y si quiero dejar de usarlo?<span class="faq__ic" aria-hidden="true"><svg width="14" height="14"><use href="#i-plus"/></svg></span></button></h3>
             <div class="faq__a" id="faq-6" role="region" aria-labelledby="faq-6-q"><div><p>Se pide la baja, la aprueba alguien del equipo y el cliente se apaga en todos los productos a la vez. Nada se borra: se puede restaurar desde la ficha.</p></div></div>
           </div>
         </div>
@@ -689,47 +608,23 @@
     </section>
 
     <!-- ============ CONTACTO ============ -->
-    <section class="contact" id="contacto" data-tone="paper" aria-labelledby="contact-title">
-      <div class="wrap contact__grid">
-        <div class="contact__intro reveal">
-          <p class="eyebrow" data-index="06">Contacto</p>
-          <h2 class="section-title" id="contact-title">Hablemos de tu próxima campaña.</h2>
-          <p class="contact__lede">Contanos qué querés resolver primero. Te responde una persona del equipo, no un bot.</p>
-          <ul class="contact__meta">
-            <li>
-              <span class="contact__meta-k">Email</span>
-              <a class="contact__meta-v" href="mailto:juanpablo@hikethecloud.com">juanpablo@hikethecloud.com</a>
-            </li>
-            <li>
-              <span class="contact__meta-k">Web</span>
-              <a class="contact__meta-v" href="https://hikethecloud.com" rel="noopener">hikethecloud.com</a>
-            </li>
-            <li>
-              <span class="contact__meta-k">Ya sos cliente</span>
-              <a class="contact__meta-v" href="https://products.hikethecloud.com" rel="noopener">Entrar a Cordada <span class="arrow" aria-hidden="true">↗</span></a>
-            </li>
-          </ul>
-        </div>
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="wrap contact__inner">
+        <p class="label label--accent reveal">Contacto</p>
+        <h2 class="title title--xl contact__title reveal" id="contact-title">Hablemos de tu<br /><span class="accent">próxima campaña</span></h2>
+        <a class="contact__mail reveal" href="mailto:juanpablo@hikethecloud.com">juanpablo@hikethecloud.com</a>
+        <p class="contact__meta reveal"><a href="https://hikethecloud.com" rel="noopener">hikethecloud.com</a><span aria-hidden="true">·</span><a href="https://products.hikethecloud.com" rel="noopener">Ya sos cliente: entrar a Cordada</a></p>
 
         <form class="form reveal" id="demoForm" novalidate>
           <div class="form__row">
-            <div class="form__field">
-              <label for="nombre">¿Cómo te llamás?</label>
-              <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Nombre y apellido" required />
-            </div>
-            <div class="form__field">
-              <label for="empresa">¿De qué marca o empresa?</label>
-              <input id="empresa" name="empresa" type="text" autocomplete="organization" placeholder="Empresa" required />
-            </div>
+            <div class="field"><label for="nombre">¿Cómo te llamás?</label><input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Nombre y apellido" required /></div>
+            <div class="field"><label for="empresa">¿De qué marca o empresa?</label><input id="empresa" name="empresa" type="text" autocomplete="organization" placeholder="Empresa" required /></div>
           </div>
-          <div class="form__field">
-            <label for="email">Tu correo</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="vos@empresa.com" required />
-          </div>
-          <div class="form__field">
-            <label for="interes">¿Qué querés resolver primero?</label>
-            <div class="select">
-              <select id="interes" name="interes">
+          <div class="form__row">
+            <div class="field"><label for="email">Tu correo</label><input id="email" name="email" type="email" autocomplete="email" placeholder="vos@empresa.com" required /></div>
+            <div class="field"><label for="interes">¿Qué querés resolver primero?</label>
+              <div class="select"><select id="interes" name="interes">
                 <option>Toda la cordada</option>
                 <option>Escuchar (Social Listener)</option>
                 <option>Crear (Re·Adapt)</option>
@@ -738,98 +633,63 @@
                 <option>Publicar (Implementador)</option>
                 <option>Entender (Lanchat)</option>
                 <option>Planes de medios</option>
-              </select>
+              </select></div>
             </div>
           </div>
-          <div class="form__field">
-            <label for="mensaje">Contexto <span class="opt">(opcional)</span></label>
-            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuántas marcas, qué canales, qué los frena hoy…"></textarea>
+          <div class="field"><label for="mensaje">Contexto <span class="opt">(opcional)</span></label><textarea id="mensaje" name="mensaje" rows="2" placeholder="Cuántas marcas, qué canales, qué los frena hoy…"></textarea></div>
+          <div class="form__foot">
+            <p class="form__note" role="status" id="formNote">Se abre tu correo con el mensaje listo para mandar.</p>
+            <button class="pill pill--solid" type="submit">Pedir la demo</button>
           </div>
-          <button class="btn btn--pill btn--primary btn--block" type="submit">Pedir la demo</button>
-          <p class="form__note" role="status" id="formNote">Se abre tu correo con el mensaje listo para mandar.</p>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer" data-tone="stage">
-    <div class="wrap footer__grid">
-      <div class="footer__brand">
-        <a class="brand brand--footer" href="#top" aria-label="Cordada, inicio">
-          <span class="brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="24" height="24">
-              <path d="M4 25.5 L12 16.5 L19 21 L28 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="12" cy="16.5" r="2.4" fill="currentColor"/>
-              <circle cx="19" cy="21" r="2.4" fill="currentColor"/>
-              <circle cx="28" cy="7.5" r="3" fill="#AD87FF"/>
-            </svg>
-          </span>
-          <span class="brand__word">Cordada</span>
-          <span class="brand__by">by Hike</span>
-        </a>
-        <p class="footer__tag">Hike es la unidad de automatización y estrategia de ABN Group.</p>
-      </div>
-
-      <nav class="footer__col" aria-label="Cordada">
-        <h4>Cordada</h4>
-        <a href="#historia">La historia</a>
-        <a href="#cuerda">La cuerda</a>
-        <a href="#proximo">Lo que viene</a>
-        <a href="#preguntas">Preguntas</a>
-        <a href="#empezar">Empezar</a>
-      </nav>
-      <nav class="footer__col" aria-label="Hike">
-        <h4>Hike</h4>
-        <a href="https://hikethecloud.com" rel="noopener">hikethecloud.com</a>
-        <a href="https://products.hikethecloud.com" rel="noopener">Entrar a Cordada</a>
-        <a href="../">Hike Creative (versión anterior)</a>
-      </nav>
-      <nav class="footer__col" aria-label="Contacto">
-        <h4>Contacto</h4>
-        <a href="mailto:juanpablo@hikethecloud.com">juanpablo@hikethecloud.com</a>
-        <a href="#contacto">Pedir una demo</a>
+  <footer class="footer">
+    <div class="wrap footer__top">
+      <a class="brand" href="#top" aria-label="Cordada, inicio">
+        <svg class="brand__mark" width="22" height="22" aria-hidden="true"><use href="#i-mark"/></svg>
+        <span class="brand__word">Cordada</span>
+      </a>
+      <nav class="footer__nav" aria-label="Pie">
+        <a href="#historia">Historia</a><a href="#piezas">Piezas</a><a href="#integraciones">Integraciones</a><a href="#preguntas">Preguntas</a><a href="https://hikethecloud.com" rel="noopener">Hike</a><a href="../">Versión anterior</a>
       </nav>
     </div>
     <div class="wrap footer__bottom">
-      <p>© 2026 Hike by ABN</p>
-      <p class="footer__made">Buenos Aires, AR</p>
+      <p>Hike es la unidad de automatización y estrategia de ABN Group.</p>
+      <p>© 2026 Hike by ABN · Buenos Aires</p>
     </div>
-    <p class="footer__big" aria-hidden="true">Cordada<span>.</span></p>
+    <p class="footer__big" aria-hidden="true">Cordada</p>
   </footer>
 
-  <!-- CTA fija, solo en el celular -->
   <div class="stickycta" id="stickyCta" hidden>
-    <span class="stickycta__name">Cordada <small>by Hike</small></span>
-    <a class="btn btn--pill btn--violet" href="#contacto">Pedir una demo</a>
+    <span class="stickycta__name">Cordada</span>
+    <a class="pill pill--solid" href="#contacto">Pedir una demo</a>
   </div>
 
-  <!-- Lightbox de los demos -->
   <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="lbTitle">
     <div class="lightbox__backdrop" data-close></div>
     <div class="lightbox__panel">
       <header class="lightbox__head">
         <div>
-          <p class="lightbox__kicker" id="lbKicker">Tramo 01 · Escuchar</p>
+          <p class="label" id="lbKicker">Tramo 01 · Escuchar</p>
           <h3 class="lightbox__title" id="lbTitle">Social Listener</h3>
         </div>
-        <button class="lightbox__close" id="lbClose" type="button" aria-label="Cerrar" data-close><svg width="18" height="18"><use href="#i-x"/></svg></button>
+        <button class="lightbox__close" id="lbClose" type="button" aria-label="Cerrar" data-close><svg width="16" height="16"><use href="#i-x"/></svg></button>
       </header>
-      <div class="lightbox__stage">
-        <video class="lightbox__video" id="lbVideo" controls playsinline preload="metadata"></video>
-      </div>
+      <div class="lightbox__stage"><video class="lightbox__video" id="lbVideo" controls playsinline preload="metadata"></video></div>
       <footer class="lightbox__foot">
         <div class="lightbox__nav">
-          <button class="lightbox__arrow" id="lbPrev" type="button">← Anterior</button>
+          <button class="link" id="lbPrev" type="button">Anterior</button>
           <span class="lightbox__count" id="lbCount">01 / 06</span>
-          <button class="lightbox__arrow" id="lbNext" type="button">Siguiente →</button>
+          <button class="link" id="lbNext" type="button">Siguiente</button>
         </div>
-        <a class="btn btn--pill btn--violet" href="#contacto" id="lbCta" data-close data-interes="">Pedir una demo</a>
+        <a class="pill pill--solid" href="#contacto" id="lbCta" data-close data-interes="">Pedir una demo</a>
       </footer>
     </div>
   </div>
 
-  <!-- El cursor "Ver completa" sobre los demos, solo con mouse -->
   <div class="cursor" id="cursor" aria-hidden="true">Ver completa</div>
 
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
