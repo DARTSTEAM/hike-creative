@@ -178,7 +178,7 @@ b, strong { font-weight: 500; }
 .hero__veil { position: absolute; inset: 0; background:
   radial-gradient(60% 55% at 50% 48%, rgba(11, 10, 16, 0.55), rgba(11, 10, 16, 0.12) 70%),
   linear-gradient(180deg, rgba(11, 10, 16, 0.35) 0%, rgba(11, 10, 16, 0) 30%, rgba(11, 10, 16, 0) 70%, var(--bg) 100%); }
-.hero__center { max-width: 980px; }
+.hero__center { width: 100%; max-width: 980px; min-width: 0; }
 .hero__kicker { font-size: 11px; font-weight: 300; letter-spacing: 0.42em; text-transform: uppercase; color: var(--mid); }
 .hero__title { margin-top: 18px; font-size: clamp(84px, 15.5vw, 248px); font-weight: 200; line-height: 0.92; letter-spacing: -0.05em; color: var(--ink); }
 .hero__tagline { margin-top: 14px; font-size: clamp(11px, 1.05vw, 14px); font-weight: 200; letter-spacing: 0.48em; text-transform: uppercase; color: var(--ink); padding-left: 0.48em; }
@@ -594,3 +594,49 @@ html.animate-ready .chapter__text > .reveal.is-visible { transition-delay: calc(
   .cursor { display: none !important; }
   .marquee, .logos__row { overflow-x: auto; }
 }
+
+/* =========================================================
+   MEJORAS DE UX
+   ========================================================= */
+/* Los seis productos en el hero, como los accesos de Polaris */
+.hero__products { margin: 34px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 960px; }
+.hero__products a { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--rule-2); background: rgba(11, 10, 16, 0.25); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-size: 10.5px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid); transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease; }
+.hero__products a:hover { color: var(--ink); border-color: rgba(255, 255, 255, 0.45); background: rgba(11, 10, 16, 0.45); }
+.hero__products svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* La sección activa, marcada en el menú */
+.nav__links a.is-active { color: var(--ink); }
+.nav__links a.is-active::after { transform: scaleX(1); }
+
+/* Encabezado en dos columnas: el título a la izquierda, la bajada abajo a la derecha */
+.head--split { max-width: none; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px clamp(40px, 6vw, 96px); align-items: end; }
+.head--split .lede { margin: 0 0 8px; justify-self: end; }
+
+/* Cuánto falta de cada demo */
+.demo__progress { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; height: 2px; background: rgba(255, 255, 255, 0.1); }
+.demo__progress span { position: absolute; inset: 0; background: var(--violet); transform-origin: left; transform: scaleX(0); transition: transform 0.26s linear; }
+
+/* Contacto: WhatsApp primero, el formulario como alternativa */
+.contact__quick { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.form__done { padding-top: 22px; border-top: 1px solid var(--rule); text-align: center; color: var(--mid); font-size: 14.5px; }
+.form__done-actions { margin-top: 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; }
+
+@media (max-width: 1023px) {
+  .head--split { grid-template-columns: 1fr; }
+  .head--split .lede { justify-self: start; }
+}
+@media (max-width: 720px) {
+  /* Los productos, en una tira que se desliza */
+  .hero__products { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; margin: 28px calc(var(--gutter) * -1) 0; padding: 0 var(--gutter); scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .hero__products::-webkit-scrollbar { display: none; }
+  .hero__products li { flex: 0 0 auto; }
+  /* En el celular, las demos son las versiones verticales: se lee la interfaz */
+  .demo { aspect-ratio: var(--va, 9 / 16); border-radius: 16px; }
+  .reel__frame { aspect-ratio: 9 / 16; max-height: 76svh; margin-inline: auto; }
+  .reel__video { object-fit: contain; }
+  .lightbox__video { aspect-ratio: 9 / 16; max-height: calc(100svh - 190px); }
+  .contact__quick .pill { flex: 1 1 100%; }
+  .contact__meta span { display: none; }
+  .contact__meta { flex-direction: column; gap: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { .demo__progress span { transition: none; } }

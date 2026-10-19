@@ -77,11 +77,11 @@
         <span class="brand__word">Andes</span>
       </a>
       <nav class="nav__links" aria-label="Principal">
+        <a href="#producto">Productos</a>
         <a href="#historia">Historia</a>
         <a href="#piezas">Piezas</a>
         <a href="#integraciones">Integraciones</a>
         <a href="#preguntas">Preguntas</a>
-        <a href="#contacto">Contacto</a>
       </nav>
       <div class="nav__actions">
         <a class="nav__enter" href="https://products.hikethecloud.com" rel="noopener">Entrar</a>
@@ -90,6 +90,7 @@
       </div>
     </div>
     <div class="nav__mobile" id="mobileMenu" hidden>
+      <a href="#producto">Productos</a>
       <a href="#historia">Historia</a>
       <a href="#piezas">Piezas</a>
       <a href="#integraciones">Integraciones</a>
@@ -117,9 +118,17 @@
           <a class="pill pill--solid" href="#contacto">Pedir una demo</a>
           <a class="pill" href="#producto">Ver cómo funciona</a>
         </div>
+        <ul class="hero__products reveal" aria-label="Los seis productos">
+          <li><a href="#tramo-1"><svg width="14" height="14" aria-hidden="true"><use href="#i-radar"/></svg>Social Listener</a></li>
+          <li><a href="#tramo-2"><svg width="14" height="14" aria-hidden="true"><use href="#i-wand"/></svg>Re·Adapt</a></li>
+          <li><a href="#tramo-3"><svg width="14" height="14" aria-hidden="true"><use href="#i-stamp"/></svg>Imprint</a></li>
+          <li><a href="#tramo-4"><svg width="14" height="14" aria-hidden="true"><use href="#i-scan"/></svg>Creative Check</a></li>
+          <li><a href="#tramo-5"><svg width="14" height="14" aria-hidden="true"><use href="#i-rocket"/></svg>Implementador</a></li>
+          <li><a href="#tramo-6"><svg width="14" height="14" aria-hidden="true"><use href="#i-chat"/></svg>Lanchat</a></li>
+        </ul>
       </div>
       <div class="hero__foot" aria-hidden="true">
-        <span>Escuchar · Crear · Multiplicar · Revisar · Publicar · Entender</span>
+        <span>Hike by ABN</span>
         <span class="hero__line"></span>
         <span>Buenos Aires · 2026</span>
       </div>
@@ -240,9 +249,11 @@
     <!-- ============ LA HISTORIA ============ -->
     <section class="story" id="historia" aria-labelledby="story-title">
       <div class="wrap">
-        <header class="head reveal">
-          <p class="label label--accent">La historia</p>
-          <h2 class="title" id="story-title">Una campaña,<br /><span class="accent">de principio a fin.</span></h2>
+        <header class="head head--split reveal">
+          <div>
+            <p class="label label--accent">La historia</p>
+            <h2 class="title" id="story-title">Una campaña,<br /><span class="accent">de principio a fin.</span></h2>
+          </div>
           <p class="lede">Seis tramos. En cada uno, un producto que ya funciona para marcas de la región. Lo que ves en cada video es el producto real.</p>
         </header>
         <nav class="index" aria-label="Tramos">
@@ -268,11 +279,12 @@
           <article class="chapter" id="tramo-1" data-chapter="1">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="0">
-                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/social-listener.jpg" data-src="media/social-listener.mp4" aria-label="Demo de Social Listener"></video>
+                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/social-listener.jpg" data-src="media/social-listener.mp4" data-poster-v="media/v/social-listener.jpg" data-va="8 / 9" data-src-v="media/v/social-listener.mp4" aria-label="Demo de Social Listener"></video>
                 <div class="demo__controls">
                   <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
                   <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
+                <span class="demo__progress" aria-hidden="true"><span></span></span>
                 <figcaption class="demo__cap">Social Listener · 20 s</figcaption>
               </figure>
             </div>
@@ -297,11 +309,12 @@
           <article class="chapter chapter--rev" id="tramo-2" data-chapter="2">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="1">
-                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/readapt.jpg" data-src="media/readapt.mp4" aria-label="Demo de Re·Adapt"></video>
+                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/readapt.jpg" data-src="media/readapt.mp4" data-poster-v="media/v/readapt.jpg" data-src-v="media/v/readapt.mp4" aria-label="Demo de Re·Adapt"></video>
                 <div class="demo__controls">
                   <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
                   <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
+                <span class="demo__progress" aria-hidden="true"><span></span></span>
                 <figcaption class="demo__cap">Re·Adapt · 35 s</figcaption>
               </figure>
             </div>
@@ -326,11 +339,12 @@
           <article class="chapter" id="tramo-3" data-chapter="3">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="2">
-                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/imprint.jpg" data-src="media/imprint.mp4" aria-label="Demo de Imprint"></video>
+                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/imprint.jpg" data-src="media/imprint.mp4" data-poster-v="media/v/imprint.jpg" data-src-v="media/v/imprint.mp4" aria-label="Demo de Imprint"></video>
                 <div class="demo__controls">
                   <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
                   <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
+                <span class="demo__progress" aria-hidden="true"><span></span></span>
                 <figcaption class="demo__cap">Imprint · 32 s</figcaption>
               </figure>
             </div>
@@ -355,11 +369,12 @@
           <article class="chapter chapter--rev" id="tramo-4" data-chapter="4">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="3">
-                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/creative-check.jpg" data-src="media/creative-check.mp4" aria-label="Demo de Creative Check"></video>
+                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/creative-check.jpg" data-src="media/creative-check.mp4" data-poster-v="media/v/creative-check.jpg" data-src-v="media/v/creative-check.mp4" aria-label="Demo de Creative Check"></video>
                 <div class="demo__controls">
                   <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
                   <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
+                <span class="demo__progress" aria-hidden="true"><span></span></span>
                 <figcaption class="demo__cap">Creative Check · 29 s</figcaption>
               </figure>
             </div>
@@ -384,11 +399,12 @@
           <article class="chapter" id="tramo-5" data-chapter="5">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="4">
-                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/implementador.jpg" data-src="media/implementador.mp4" aria-label="Demo de Implementador"></video>
+                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/implementador.jpg" data-src="media/implementador.mp4" data-poster-v="media/v/implementador.jpg" data-src-v="media/v/implementador.mp4" aria-label="Demo de Implementador"></video>
                 <div class="demo__controls">
                   <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
                   <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
+                <span class="demo__progress" aria-hidden="true"><span></span></span>
                 <figcaption class="demo__cap">Implementador · 30 s</figcaption>
               </figure>
             </div>
@@ -413,11 +429,12 @@
           <article class="chapter chapter--rev" id="tramo-6" data-chapter="6">
             <div class="chapter__media reveal">
               <figure class="demo" data-demo="5">
-                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/lanchat.jpg" data-src="media/lanchat.mp4" aria-label="Demo de Lanchat"></video>
+                <video class="demo__video" muted playsinline loop preload="none" data-poster="media/lanchat.jpg" data-src="media/lanchat.mp4" data-poster-v="media/v/lanchat.jpg" data-src-v="media/v/lanchat.mp4" aria-label="Demo de Lanchat"></video>
                 <div class="demo__controls">
                   <button class="demo__btn demo__toggle" type="button" aria-label="Pausar" aria-pressed="true"><svg class="ic-pause" width="12" height="12"><use href="#i-pause"/></svg><svg class="ic-play" width="12" height="12"><use href="#i-play"/></svg></button>
                   <button class="demo__btn demo__full" type="button" aria-label="Ver la demo completa"><svg width="12" height="12"><use href="#i-expand"/></svg></button>
                 </div>
+                <span class="demo__progress" aria-hidden="true"><span></span></span>
                 <figcaption class="demo__cap">Lanchat · 45 s</figcaption>
               </figure>
             </div>
@@ -618,7 +635,11 @@
         <p class="label label--accent reveal">Contacto</p>
         <h2 class="title title--xl contact__title reveal" id="contact-title">Hablemos de tu<br /><span class="accent">próxima campaña</span></h2>
         <a class="contact__mail reveal" href="mailto:juanpablo@hikethecloud.com">juanpablo@hikethecloud.com</a>
-        <p class="contact__meta reveal"><a href="https://hikethecloud.com" rel="noopener">hikethecloud.com</a><span aria-hidden="true">·</span><a href="https://products.hikethecloud.com" rel="noopener">Ya sos cliente: entrar a Andes</a></p>
+        <div class="contact__quick reveal">
+          <a class="pill pill--solid" href="https://wa.me/5491167825404?text=Hola%2C%20quiero%20una%20demo%20de%20Andes." rel="noopener" target="_blank" data-wa>Escribinos por WhatsApp</a>
+          <a class="pill" href="#demoForm">Dejanos tus datos</a>
+        </div>
+        <p class="contact__meta reveal"><a href="tel:+5491167825404">+54 9 11 6782 5404</a><span aria-hidden="true">·</span><a href="https://hikethecloud.com" rel="noopener">hikethecloud.com</a><span aria-hidden="true">·</span><a href="https://products.hikethecloud.com" rel="noopener">Ya sos cliente: entrar a Andes</a></p>
 
         <form class="form reveal" id="demoForm" novalidate>
           <div class="form__row">
@@ -642,8 +663,15 @@
           </div>
           <div class="field"><label for="mensaje">Contexto <span class="opt">(opcional)</span></label><textarea id="mensaje" name="mensaje" rows="2" placeholder="Cuántas marcas, qué canales, qué los frena hoy…"></textarea></div>
           <div class="form__foot">
-            <p class="form__note" role="status" id="formNote">Se abre tu correo con el mensaje listo para mandar.</p>
+            <p class="form__note" role="status" id="formNote">Se abre tu correo con el mensaje listo. Te respondemos en el día.</p>
             <button class="pill pill--solid" type="submit">Pedir la demo</button>
+          </div>
+          <div class="form__done" id="formDone" hidden>
+            <p>Si no se abrió tu correo, copiá el mensaje y mandalo a juanpablo@hikethecloud.com, o mandalo por WhatsApp.</p>
+            <div class="form__done-actions">
+              <button class="link" type="button" id="copyMsg">Copiar el mensaje</button>
+              <a class="link" id="waMsg" href="https://wa.me/5491167825404" rel="noopener" target="_blank">Mandarlo por WhatsApp</a>
+            </div>
           </div>
         </form>
       </div>

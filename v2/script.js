@@ -16,6 +16,10 @@
   try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
   var finePointer = true;
   try { finePointer = window.matchMedia('(pointer: fine)').matches; } catch (e) {}
+  // En el celular las demos son las versiones verticales: en 16:9 a 350 px la
+  // interfaz no se lee. Se decide al cargar; girar el teléfono no cambia la fuente.
+  var VERT = false;
+  try { VERT = window.matchMedia('(max-width: 720px)').matches; } catch (e) {}
   var saveData = false;
   try { saveData = Boolean(navigator.connection && navigator.connection.saveData); } catch (e) {}
 
@@ -120,8 +124,9 @@
     function load(i) {
       var v = videos[i];
       if (!v || v.getAttribute('src')) return;
-      v.setAttribute('poster', 'media/cortes/' + CHAPTERS[i].id + '.jpg');
-      v.setAttribute('src', 'media/cortes/' + CHAPTERS[i].id + '.mp4');
+      var dir = VERT ? 'media/cortes-v/' : 'media/cortes/';
+      v.setAttribute('poster', dir + CHAPTERS[i].id + '.jpg');
+      v.setAttribute('src', dir + CHAPTERS[i].id + '.mp4');
       v.load();
     }
     function active() { return playing && !held && onScreen && tabVisible; }
@@ -233,11 +238,18 @@
       function load() {
         if (loaded) return;
         loaded = true;
-        var poster = video.getAttribute('data-poster');
+        var v = VERT && video.getAttribute('data-src-v');
+        var poster = video.getAttribute(v ? 'data-poster-v' : 'data-poster');
         if (poster) video.setAttribute('poster', poster);
-        video.setAttribute('src', video.getAttribute('data-src'));
+        video.setAttribute('src', video.getAttribute(v ? 'data-src-v' : 'data-src'));
         video.load();
       }
+      if (VERT && video.getAttribute('data-va')) fig.style.setProperty('--va', video.getAttribute('data-va'));
+      // Cuánto falta de la demo
+      var bar = fig.querySelector('.demo__progress span');
+      if (bar) video.addEventListener('timeupdate', function () {
+        if (video.duration) bar.style.transform = 'scaleX(' + (video.currentTime / video.duration).toFixed(4) + ')';
+      });
       function reflect() {
         var on = wanted && visible && !suspended;
         if (toggleBtn) { toggleBtn.setAttribute('aria-pressed', String(wanted)); toggleBtn.setAttribute('aria-label', wanted ? 'Pausar' : 'Reproducir'); }
@@ -292,8 +304,9 @@
       if (count) count.textContent = pad(current + 1) + ' / ' + pad(TOTAL);
       if (cta) cta.setAttribute('data-interes', c.interes);
       if (video) {
-        video.setAttribute('poster', 'media/' + c.id + '.jpg');
-        video.setAttribute('src', 'media/' + c.id + '.mp4');
+        var dir = VERT ? 'media/v/' : 'media/';
+        video.setAttribute('poster', dir + c.id + '.jpg');
+        video.setAttribute('src', dir + c.id + '.mp4');
         video.load();
         var p = video.play();
         if (p && p.catch) p.catch(function () {});
@@ -496,6 +509,25 @@
     });
   })();
 
+
+  /* ---------- Menú: qué sección está a la vista ---------- */
+  (function spy() {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav__links a[href^="#"]'));
+    var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+    if (!links.length) return;
+    var current = -1;
+    scrollWatchers.push(function () {
+      var line = window.innerHeight * 0.35, next = -1;
+      targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= line && t.getBoundingClientRect().bottom > line) next = i; });
+      if (next === current) return;
+      current = next;
+      links.forEach(function (a, i) {
+        a.classList.toggle('is-active', i === current);
+        if (i === current) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+      });
+    });
+  })();
+
   /* ---------- Preguntas ---------- */
   (function faq() {
     var items = Array.prototype.slice.call(document.querySelectorAll('.faq__item'));
@@ -561,7 +593,17 @@
         (mensaje ? '\nContexto:\n' + mensaje + '\n' : '') +
         '\nMe escribís a ' + email + '.\n';
       window.location.href = 'mailto:juanpablo@hikethecloud.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      if (note) { note.textContent = 'Se abrió tu correo con el mensaje listo. Si no se abrió, escribinos a juanpablo@hikethecloud.com.'; note.className = 'form__note is-ok'; }
+      if (note) { note.textContent = 'Se abrió tu correo con el mensaje listo para mandar.'; note.className = 'form__note is-ok'; }
+      var done = document.getElementById('formDone');
+      var wa = document.getElementById('waMsg');
+      var copy = document.getElementById('copyMsg');
+      if (wa) wa.setAttribute('href', 'https://wa.me/5491167825404?text=' + encodeURIComponent(body));
+      if (copy) copy.onclick = function () {
+        var ok = function () { copy.textContent = 'Mensaje copiado'; };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(body).then(ok, function () {});
+        else { var t = document.createElement('textarea'); t.value = body; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); ok(); } catch (err) {} t.remove(); }
+      };
+      if (done) done.hidden = false;
     });
   })();
 
